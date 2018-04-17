@@ -10,11 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5c6108c-08b8-4588-ba6c-2dba0cd448c3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.abi" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.abi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.wast" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.wast" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +25,8 @@
       <file leaf-file-name="irespopolls.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            <state relative-caret-position="518">
+              <caret line="61" column="194" selection-start-line="61" selection-start-column="194" selection-end-line="61" selection-end-column="194" />
             </state>
           </provider>
         </entry>
@@ -132,12 +128,12 @@
       <option name="presentableId" value="Default" />
       <updated>1523867304841</updated>
       <workItem from="1523867306447" duration="5698000" />
-      <workItem from="1523968869546" duration="2573000" />
+      <workItem from="1523968869546" duration="3110000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8271000" />
+    <option name="totallyTimeSpent" value="8808000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -184,8 +180,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        <state relative-caret-position="518">
+          <caret line="61" column="194" selection-start-line="61" selection-start-column="194" selection-end-line="61" selection-end-column="194" />
         </state>
       </provider>
     </entry>

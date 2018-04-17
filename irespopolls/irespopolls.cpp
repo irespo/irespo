@@ -34,6 +34,12 @@ private:
     };
 
     typedef singleton<N(irespopolls), N(config), N(irespopolls), config> configs;
+
+    struct option {
+        uint64_t optionId;
+        string optionText;
+        uint32_t numberOfVotes;
+    };
     // @abi table
     struct pollresults {
         uint64_t eventId;
@@ -49,9 +55,11 @@ private:
         uint64_t startDateTimeUTC;
         uint64_t endDateTimeUTC;
 
+        vector<option> options;
+
         uint64_t primary_key() const {return questionId; }
 
-        EOSLIB_SERIALIZE( pollresults, (eventId)(eventName)(questionId)(questionText)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired))
+        EOSLIB_SERIALIZE( pollresults, (eventId)(eventName)(questionId)(questionText)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired)(startDateTimeUTC)(endDateTimeUTC)(options))
     };
 
     multi_index<N(pollresults), pollresults> _pollresults;
