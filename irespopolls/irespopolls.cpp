@@ -60,6 +60,7 @@ private:
         uint64_t optionId;
         string optionText;
         uint32_t numberOfVotes;
+        EOSLIB_SERIALIZE(option , (optionId)(optionText)(numberOfVotes))
     };
     // @abi table
     struct pollresults {

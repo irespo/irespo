@@ -10,9 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5c6108c-08b8-4588-ba6c-2dba0cd448c3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.abi" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.abi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.wast" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.wast" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +25,8 @@
       <file leaf-file-name="irespopolls.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+            <state relative-caret-position="380">
+              <caret line="62" column="70" selection-start-line="62" selection-start-column="70" selection-end-line="62" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -139,12 +137,12 @@
       <option name="presentableId" value="Default" />
       <updated>1523867304841</updated>
       <workItem from="1523867306447" duration="5698000" />
-      <workItem from="1523968869546" duration="15833000" />
+      <workItem from="1523968869546" duration="16319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21531000" />
+    <option name="totallyTimeSpent" value="22017000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -212,8 +210,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+        <state relative-caret-position="380">
+          <caret line="62" column="70" selection-start-line="62" selection-start-column="70" selection-end-line="62" selection-end-column="70" />
         </state>
       </provider>
     </entry>
