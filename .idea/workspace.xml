@@ -27,23 +27,19 @@
       <file leaf-file-name="irespopolls.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="24" column="62" lean-forward="true" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+            <state relative-caret-position="617">
+              <caret line="78" column="65" selection-start-line="78" selection-start-column="65" selection-end-line="78" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="irespopolls.wast" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.wast">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="irespopolls.abi" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>irespopolls</find>
+      <find>addpoll</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,6 +48,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/irespopolls.cpp" />
+        <option value="$PROJECT_DIR$/irespopoll/irespopolls.cpp" />
         <option value="$PROJECT_DIR$/irespopolls/irespopolls.cpp" />
       </list>
     </option>
@@ -103,6 +100,9 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\shared_contracts\irespo" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\shared_contracts\irespo\irespopolls" />
     </key>
@@ -130,12 +130,12 @@
       <option name="presentableId" value="Default" />
       <updated>1523867304841</updated>
       <workItem from="1523867306447" duration="5698000" />
-      <workItem from="1523968869546" duration="6694000" />
+      <workItem from="1523968869546" duration="11898000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12392000" />
+    <option name="totallyTimeSpent" value="17596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="158" width="1936" height="1056" extended-state="6" />
@@ -143,7 +143,7 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="CMake" order="7" visible="true" weight="0.31045407" />
+      <window_info anchor="bottom" id="CMake" order="7" visible="true" weight="0.07919747" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -174,16 +174,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
+    <entry file="file://$PROJECT_DIR$/irespopoll/irespopolls.abi">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/irespopoll/irespopolls.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.wast">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="536" column="32" selection-start-line="536" selection-start-column="32" selection-end-line="536" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714">
+          <caret line="9" column="11" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irespopoll/irespopoll.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="24" column="62" lean-forward="true" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+        <state relative-caret-position="617">
+          <caret line="78" column="65" selection-start-line="78" selection-start-column="65" selection-end-line="78" selection-end-column="65" />
         </state>
       </provider>
     </entry>
