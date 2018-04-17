@@ -23,7 +23,7 @@ public:
     // @abi action
     void addpoll(uint64_t questionId, string questionText, uint64_t eventId, string eventName
            , uint8_t  isEventPasswordProtected, uint8_t  isLoggedUserRequired,  uint8_t  isEOSUserRequired
-           , uint64_t startDateTimeUTC, uint64_t endDateTimeUTC, vector<option> options
+           , uint64_t startDateTimeUTC, uint64_t endDateTimeUTC, pollOptions options
     ){
         eosio_assert(configs::exists(), "Application account not configured");
         require_auth(configs::get().application);
@@ -48,7 +48,6 @@ public:
         }
     }
 
-private:
     struct config {
         account_name application;
         EOSLIB_SERIALIZE(config, (application))
@@ -60,8 +59,12 @@ private:
         uint64_t optionId;
         string optionText;
         uint32_t numberOfVotes;
+
         EOSLIB_SERIALIZE(option , (optionId)(optionText)(numberOfVotes))
     };
+
+    typedef vector<option> pollOptions;
+
     // @abi table
     struct pollresults {
         uint64_t questionId;
@@ -77,7 +80,7 @@ private:
         uint64_t startDateTimeUTC;
         uint64_t endDateTimeUTC;
 
-        vector<option> options;
+        pollOptions options;
 
         uint64_t primary_key() const {return questionId; }
 
