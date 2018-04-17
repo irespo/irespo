@@ -20,6 +20,12 @@ public:
         eosio_assert(!configs::exists(), "Configuration already exists");
         configs::set(config{application});
     }
+    // @abi action
+    void addpoll(account_name application){
+        eosio_assert(configs::exists(), "Application account not configured");
+        require_auth(configs::get().application);
+
+    }
 
 private:
     struct config {
@@ -51,4 +57,4 @@ private:
     multi_index<N(pollresults), pollresults> _pollresults;
 };
 
-EOSIO_ABI( irespopolls, (setapp))
+EOSIO_ABI( irespopolls, (setapp)(addpoll))
