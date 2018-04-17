@@ -21,10 +21,27 @@ public:
         configs::set(config{application});
     }
     // @abi action
-    void addpoll(account_name application){
+    void addpoll(uint64_t eventId, string eventName, uint64_t questionId, string questionText
+                 , uint8_t  isEventPasswordProtected, uint8_t  isLoggedUserRequired,  uint8_t  isEOSUserRequired
+                 , uint64_t startDateTimeUTC, uint64_t endDateTimeUTC
+    ){
         eosio_assert(configs::exists(), "Application account not configured");
         require_auth(configs::get().application);
 
+        auto iter = _pollresults.find(questionId);
+        if(iter == _pollresults.end()){
+            _pollresults.emplace(questionId, [&](auto& row){
+                row.eventId = eventId;
+                row.eventName = eventName;
+                row.questionId = questionId;
+                row.questionText = questionText;
+                row.isEventPasswordProtected = isEventPasswordProtected;
+                row.isLoggedUserRequired = isLoggedUserRequired;
+                row.isEOSUserRequired = isEOSUserRequired;
+                row.startDateTimeUTC = startDateTimeUTC;
+                row.endDateTimeUTC = endDateTimeUTC;
+            });
+        }
     }
 
 private:
