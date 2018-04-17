@@ -610,6 +610,11 @@
     )
     (br $label$2)
    )
+   (set_local $1
+    (call $_ZN5eosio9singletonILy8490845310053806080ELy4982871454518345728ELy8490845310053806080EN11irespopolls6configEE3getEy
+     (i64.const 8490845310053806080)
+    )
+   )
    (i32.store offset=20
     (get_local $12)
     (get_local $2)
@@ -3190,12 +3195,12 @@
       (i32.load
        (i32.add
         (get_local $1)
-        (i32.const 36)
+        (i32.const 12)
        )
       )
       (i32.shr_u
        (tee_local $3
-        (i32.load8_u offset=32
+        (i32.load8_u offset=8
          (get_local $1)
         )
        )
@@ -3248,7 +3253,7 @@
       (i32.load
        (i32.add
         (get_local $1)
-        (i32.const 12)
+        (i32.const 36)
        )
       )
       (i32.shr_u
@@ -3256,7 +3261,7 @@
         (i32.load8_u
          (i32.add
           (get_local $1)
-          (i32.const 8)
+          (i32.const 32)
          )
         )
        )
@@ -4087,6 +4092,46 @@
     (i32.load offset=4
      (get_local $0)
     )
+    (get_local $1)
+    (i32.const 8)
+   )
+  )
+  (i32.store offset=4
+   (get_local $0)
+   (i32.add
+    (i32.load offset=4
+     (get_local $0)
+    )
+    (i32.const 8)
+   )
+  )
+  (call $eosio_assert
+   (i32.gt_s
+    (i32.sub
+     (i32.load offset=8
+      (tee_local $0
+       (call $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
+        (get_local $0)
+        (i32.add
+         (get_local $1)
+         (i32.const 8)
+        )
+       )
+      )
+     )
+     (i32.load offset=4
+      (get_local $0)
+     )
+    )
+    (i32.const 7)
+   )
+   (i32.const 224)
+  )
+  (drop
+   (call $memcpy
+    (i32.load offset=4
+     (get_local $0)
+    )
     (i32.add
      (get_local $1)
      (i32.const 24)
@@ -4113,46 +4158,6 @@
         (i32.add
          (get_local $1)
          (i32.const 32)
-        )
-       )
-      )
-     )
-     (i32.load offset=4
-      (get_local $0)
-     )
-    )
-    (i32.const 7)
-   )
-   (i32.const 224)
-  )
-  (drop
-   (call $memcpy
-    (i32.load offset=4
-     (get_local $0)
-    )
-    (get_local $1)
-    (i32.const 8)
-   )
-  )
-  (i32.store offset=4
-   (get_local $0)
-   (i32.add
-    (i32.load offset=4
-     (get_local $0)
-    )
-    (i32.const 8)
-   )
-  )
-  (call $eosio_assert
-   (i32.gt_s
-    (i32.sub
-     (i32.load offset=8
-      (tee_local $0
-       (call $_ZN5eosiolsINS_10datastreamIPcEEEERT_S5_RKNSt3__112basic_stringIcNS6_11char_traitsIcEENS6_9allocatorIcEEEE
-        (get_local $0)
-        (i32.add
-         (get_local $1)
-         (i32.const 8)
         )
        )
       )
@@ -4582,10 +4587,7 @@
   )
   (drop
    (call $memcpy
-    (i32.add
-     (get_local $1)
-     (i32.const 24)
-    )
+    (get_local $1)
     (i32.load offset=4
      (get_local $0)
     )
@@ -4610,7 +4612,7 @@
         (get_local $0)
         (i32.add
          (get_local $1)
-         (i32.const 32)
+         (i32.const 8)
         )
        )
       )
@@ -4625,7 +4627,10 @@
   )
   (drop
    (call $memcpy
-    (get_local $1)
+    (i32.add
+     (get_local $1)
+     (i32.const 24)
+    )
     (i32.load offset=4
      (get_local $0)
     )
@@ -4649,7 +4654,7 @@
        (get_local $0)
        (i32.add
         (get_local $1)
-        (i32.const 8)
+        (i32.const 32)
        )
       )
      )

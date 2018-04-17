@@ -23,14 +23,14 @@ public:
     // @abi action
     void addpoll(uint64_t questionId, string questionText, uint64_t eventId, string eventName
            , uint8_t  isEventPasswordProtected, uint8_t  isLoggedUserRequired,  uint8_t  isEOSUserRequired
-           , uint64_t startDateTimeUTC, uint64_t endDateTimeUTC
+           , uint64_t startDateTimeUTC, uint64_t endDateTimeUTC, vector<option> options
     ){
         eosio_assert(configs::exists(), "Application account not configured");
         require_auth(configs::get().application);
 
         auto iter = _pollresults.find(questionId);
         if(iter == _pollresults.end()){
-            _pollresults.emplace(questionId, [&](auto& row){
+            _pollresults.emplace(configs::get().application, [&](auto& row){
                 row.questionId = questionId;
                 row.questionText = questionText;
                 row.eventId = eventId;
@@ -40,7 +40,11 @@ public:
                 row.isEOSUserRequired = isEOSUserRequired;
                 row.startDateTimeUTC = startDateTimeUTC;
                 row.endDateTimeUTC = endDateTimeUTC;
+                row.options = options;
             });
+        }
+        else{
+
         }
     }
 
@@ -76,7 +80,7 @@ private:
 
         uint64_t primary_key() const {return questionId; }
 
-        EOSLIB_SERIALIZE( pollresults, (questionId)(questionText)(eventId)(eventName)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired)(startDateTimeUTC)(endDateTimeUTC))
+        EOSLIB_SERIALIZE( pollresults, (questionId)(questionText)(eventId)(eventName)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired)(startDateTimeUTC)(endDateTimeUTC)(options))
     };
 
     multi_index<N(pollresults), pollresults> _pollresults;
