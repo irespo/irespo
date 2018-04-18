@@ -20,7 +20,6 @@ public:
         EOSLIB_SERIALIZE(option , (optionId)(optionText)(numberOfVotes))
     };
 
-    // @abi table
     // @abi action
     struct pollresult {
         uint64_t questionId;
@@ -114,17 +113,7 @@ public:
         }
     }
 
-    // @abi action
-    void getpoll(uint64_t questionId){
-        eosio_assert(configs::exists(), "Application account not configured");
-        require_auth(configs::get().application);
-
-        auto poll = _pollresults.get(questionId);
-
-        //return poll;
-    }
-
     multi_index<N(pollresult), pollresult> _pollresults;
 };
 
-EOSIO_ABI( irespopolls, (setapp)(addpoll)(deletepoll)(getpoll))
+EOSIO_ABI( irespopolls, (setapp)(addpoll)(deletepoll))
