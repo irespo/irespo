@@ -12,6 +12,44 @@ public:
     irespopolls (account_name self) : contract(self),
      _pollresults(_self, _self){}
 
+    struct option {
+        uint64_t optionId;
+        string optionText;
+        uint32_t numberOfVotes;
+
+        EOSLIB_SERIALIZE(option , (optionId)(optionText)(numberOfVotes))
+    };
+
+    // @abi table
+    // @abi action
+    struct pollresult {
+        uint64_t questionId;
+        string questionText;
+
+        uint64_t eventId;
+        string eventName;
+
+        uint8_t  isEventPasswordProtected;
+        uint8_t  isLoggedUserRequired;
+        uint8_t  isEOSUserRequired;
+
+        uint64_t startDateTimeUTC;
+        uint64_t endDateTimeUTC;
+
+        vector<option> options;
+
+        uint64_t primary_key() const {return questionId; }
+
+        EOSLIB_SERIALIZE( pollresult, (questionId)(questionText)(eventId)(eventName)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired)(startDateTimeUTC)(endDateTimeUTC)(options))
+    };
+
+    struct config {
+        account_name application;
+        EOSLIB_SERIALIZE(config, (application))
+    };
+
+    typedef singleton<N(irespopolls), N(config), N(irespopolls), config> configs;
+
     // @abi action
     void setapp(account_name application){
         require_auth(_self);
@@ -31,19 +69,11 @@ public:
            , uint8_t  isEOSUserRequired
            , uint64_t startDateTimeUTC
            , uint64_t endDateTimeUTC
-           , vector<uint64_t> optionIds
-           , vector<string> optionTexts
-           , vector<uint64_t> optionNumbersOfVotes
+           , vector<option> options
     ){
         eosio_assert(configs::exists(), "Application account not configured");
         require_auth(configs::get().application);
 
-//        vector<option> options;
-//        for (auto i=optionIds.begin(); i!=optionIds.end(); ++i) {
-//            auto index = i-optionIds.begin();
-//            options.push_back(option());
-//            options[index].optionId = *i;
-//        }
         auto iter = _pollresults.find(questionId);
 
         if(iter == _pollresults.end()){
@@ -58,9 +88,7 @@ public:
                 row.isEOSUserRequired = isEOSUserRequired;
                 row.startDateTimeUTC = startDateTimeUTC;
                 row.endDateTimeUTC = endDateTimeUTC;
-                row.optionIds = optionIds;
-                row.optionTexts = optionTexts;
-                row.optionNumbersOfVotes = optionNumbersOfVotes;
+                row.options = options;
             });
 
             print("Poll added");
@@ -86,47 +114,17 @@ public:
         }
     }
 
+    // @abi action
+    void getpoll(uint64_t questionId){
+        eosio_assert(configs::exists(), "Application account not configured");
+        require_auth(configs::get().application);
 
-    struct config {
-        account_name application;
-        EOSLIB_SERIALIZE(config, (application))
-    };
+        auto poll = _pollresults.get(questionId);
 
-    typedef singleton<N(irespopolls), N(config), N(irespopolls), config> configs;
-
-    struct option {
-        uint64_t optionId;
-        string optionText;
-        uint32_t numberOfVotes;
-
-        EOSLIB_SERIALIZE(option , (optionId)(optionText)(numberOfVotes))
-    };
-
-    // @abi table
-    struct pollresult {
-        uint64_t questionId;
-        string questionText;
-
-        uint64_t eventId;
-        string eventName;
-
-        uint8_t  isEventPasswordProtected;
-        uint8_t  isLoggedUserRequired;
-        uint8_t  isEOSUserRequired;
-
-        uint64_t startDateTimeUTC;
-        uint64_t endDateTimeUTC;
-
-        vector<uint64_t> optionIds;
-        vector<string> optionTexts;
-        vector<uint64_t> optionNumbersOfVotes;
-
-        uint64_t primary_key() const {return questionId; }
-
-        EOSLIB_SERIALIZE( pollresult, (questionId)(questionText)(eventId)(eventName)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired)(startDateTimeUTC)(endDateTimeUTC)(optionIds)(optionTexts)(optionNumbersOfVotes))
-    };
+        //return poll;
+    }
 
     multi_index<N(pollresult), pollresult> _pollresults;
 };
 
-EOSIO_ABI( irespopolls, (setapp)(addpoll)(deletepoll))
+EOSIO_ABI( irespopolls, (setapp)(addpoll)(deletepoll)(getpoll))

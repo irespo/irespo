@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5c6108c-08b8-4588-ba6c-2dba0cd448c3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.abi" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.abi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.wast" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.wast" afterDir="false" />
@@ -28,17 +27,8 @@
       <file leaf-file-name="irespopolls.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="irespopolls.abi" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+            <state relative-caret-position="-488">
+              <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -142,12 +132,12 @@
       <updated>1523867304841</updated>
       <workItem from="1523867306447" duration="5698000" />
       <workItem from="1523968869546" duration="28017000" />
-      <workItem from="1524041031348" duration="1985000" />
+      <workItem from="1524041031348" duration="5697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35700000" />
+    <option name="totallyTimeSpent" value="39412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="158" width="1936" height="1056" extended-state="6" />
@@ -210,15 +200,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+        <state relative-caret-position="351">
+          <caret line="119" column="7" lean-forward="true" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+        <state relative-caret-position="-488">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
         </state>
       </provider>
     </entry>
