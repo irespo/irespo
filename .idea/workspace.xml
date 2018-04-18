@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5c6108c-08b8-4588-ba6c-2dba0cd448c3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.abi" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.abi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.wast" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.wast" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +27,8 @@
       <file leaf-file-name="irespopolls.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="66" column="39" lean-forward="true" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="39" />
+            <state relative-caret-position="651">
+              <caret line="107" column="231" selection-start-line="107" selection-start-column="231" selection-end-line="107" selection-end-column="231" />
             </state>
           </provider>
         </entry>
@@ -34,8 +36,8 @@
       <file leaf-file-name="irespopolls.abi" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+            <state relative-caret-position="1292">
+              <caret line="80" column="39" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -56,6 +58,7 @@
       <list>
         <option value="$PROJECT_DIR$/irespopolls.cpp" />
         <option value="$PROJECT_DIR$/irespopoll/irespopolls.cpp" />
+        <option value="$PROJECT_DIR$/irespopolls/irespopolls.abi" />
         <option value="$PROJECT_DIR$/irespopolls/irespopolls.cpp" />
       </list>
     </option>
@@ -69,11 +72,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-1928" />
+    <option name="y" value="158" />
     <option name="width" value="1936" />
-    <option name="height" value="1176" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -137,20 +140,20 @@
       <option name="presentableId" value="Default" />
       <updated>1523867304841</updated>
       <workItem from="1523867306447" duration="5698000" />
-      <workItem from="1523968869546" duration="18247000" />
+      <workItem from="1523968869546" duration="23983000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23945000" />
+    <option name="totallyTimeSpent" value="29681000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="-1928" y="158" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="CMake" order="7" visible="true" weight="0.070290536" />
+      <window_info anchor="bottom" id="CMake" order="7" visible="true" weight="0.07919747" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -203,15 +206,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+        <state relative-caret-position="1292">
+          <caret line="80" column="39" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="66" column="39" lean-forward="true" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="39" />
+        <state relative-caret-position="651">
+          <caret line="107" column="231" selection-start-line="107" selection-start-column="231" selection-end-line="107" selection-end-column="231" />
         </state>
       </provider>
     </entry>

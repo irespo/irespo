@@ -20,16 +20,35 @@ public:
         eosio_assert(!configs::exists(), "Configuration already exists");
         configs::set(config{application});
     }
+
     // @abi action
-    void addpoll(uint64_t questionId, string questionText, uint64_t eventId, string eventName
-           , uint8_t  isEventPasswordProtected, uint8_t  isLoggedUserRequired,  uint8_t  isEOSUserRequired
-           , uint64_t startDateTimeUTC, uint64_t endDateTimeUTC, pollOptions options
+    void addpoll(uint64_t questionId
+           , string questionText
+           , uint64_t eventId
+           , string eventName
+           , uint8_t  isEventPasswordProtected
+           , uint8_t  isLoggedUserRequired
+           , uint8_t  isEOSUserRequired
+           , uint64_t startDateTimeUTC
+           , uint64_t endDateTimeUTC
+           , vector<uint64_t> optionIds
+           , vector<string> optionTexts
+           , vector<uint64_t> optionNumbersOfVotes
     ){
         eosio_assert(configs::exists(), "Application account not configured");
         require_auth(configs::get().application);
 
+//        vector<option> options;
+//        for (auto i=optionIds.begin(); i!=optionIds.end(); ++i) {
+//            auto index = i-optionIds.begin();
+//            options.push_back(option());
+//            options[index].optionId = *i;
+//        }
+
         auto iter = _pollresults.find(questionId);
+
         if(iter == _pollresults.end()){
+
             _pollresults.emplace(configs::get().application, [&](auto& row){
                 row.questionId = questionId;
                 row.questionText = questionText;
@@ -40,7 +59,9 @@ public:
                 row.isEOSUserRequired = isEOSUserRequired;
                 row.startDateTimeUTC = startDateTimeUTC;
                 row.endDateTimeUTC = endDateTimeUTC;
-                row.options = options;
+                row.optionIds = optionIds;
+                row.optionTexts = optionTexts;
+                row.optionNumbersOfVotes = optionNumbersOfVotes;
             });
         }
         else{
@@ -63,8 +84,6 @@ public:
         EOSLIB_SERIALIZE(option , (optionId)(optionText)(numberOfVotes))
     };
 
-    typedef vector<option> pollOptions;
-
     // @abi table
     struct pollresults {
         uint64_t questionId;
@@ -80,11 +99,13 @@ public:
         uint64_t startDateTimeUTC;
         uint64_t endDateTimeUTC;
 
-        pollOptions options;
+        vector<uint64_t> optionIds;
+        vector<string> optionTexts;
+        vector<uint64_t> optionNumbersOfVotes;
 
         uint64_t primary_key() const {return questionId; }
 
-        EOSLIB_SERIALIZE( pollresults, (questionId)(questionText)(eventId)(eventName)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired)(startDateTimeUTC)(endDateTimeUTC)(options))
+        EOSLIB_SERIALIZE( pollresults, (questionId)(questionText)(eventId)(eventName)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired)(startDateTimeUTC)(endDateTimeUTC)(optionIds)(optionTexts)(optionNumbersOfVotes))
     };
 
     multi_index<N(pollresults), pollresults> _pollresults;
