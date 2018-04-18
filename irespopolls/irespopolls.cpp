@@ -62,11 +62,30 @@ public:
                 row.optionTexts = optionTexts;
                 row.optionNumbersOfVotes = optionNumbersOfVotes;
             });
+
+            print("Poll added");
         }
         else{
-
+            print("Poll already exists");
         }
     }
+
+    // @abi action
+    void deletepoll(uint64_t questionId){
+        eosio_assert(configs::exists(), "Application account not configured");
+        require_auth(configs::get().application);
+
+        auto iter = _pollresults.find(questionId);
+
+        if(iter == _pollresults.end()){
+            print("No poll to delete");
+        }
+        else{
+            _pollresults.erase(iter);
+            print("Poll deleted");
+        }
+    }
+
 
     struct config {
         account_name application;
@@ -110,4 +129,4 @@ public:
     multi_index<N(pollresult), pollresult> _pollresults;
 };
 
-EOSIO_ABI( irespopolls, (setapp)(addpoll))
+EOSIO_ABI( irespopolls, (setapp)(addpoll)(deletepoll))
