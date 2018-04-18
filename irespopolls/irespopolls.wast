@@ -250,7 +250,7 @@
          )
         )
         (drop
-         (call $_ZN11irespopolls11pollresultsD2Ev
+         (call $_ZN11irespopolls10pollresultD2Ev
           (get_local $4)
          )
         )
@@ -672,7 +672,7 @@
           (i32.const 16)
          )
         )
-        (i64.const -5970898259264245760)
+        (i64.const -5970898259264258048)
         (get_local $1)
        )
       )
@@ -682,7 +682,7 @@
     (call $eosio_assert
      (i32.eq
       (i32.load offset=100
-       (call $_ZNK5eosio11multi_indexILy12475845814445305856EN11irespopolls11pollresultsEJEE31load_object_by_primary_iteratorEl
+       (call $_ZNK5eosio11multi_indexILy12475845814445293568EN11irespopolls10pollresultEJEE31load_object_by_primary_iteratorEl
         (get_local $7)
         (get_local $6)
        )
@@ -767,7 +767,7 @@
     (get_local $15)
     (get_local $12)
    )
-   (call $_ZN5eosio11multi_indexILy12475845814445305856EN11irespopolls11pollresultsEJEE7emplaceIZNS1_7addpollEyNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEySB_hhhyyNS5_6vectorIyNS9_IyEEEENSC_ISB_NS9_ISB_EEEESE_EUlRT_E_EENS3_14const_iteratorEyOSH_
+   (call $_ZN5eosio11multi_indexILy12475845814445293568EN11irespopolls10pollresultEJEE7emplaceIZNS1_7addpollEyNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEySB_hhhyyNS5_6vectorIyNS9_IyEEEENSC_ISB_NS9_ISB_EEEESE_EUlRT_E_EENS3_14const_iteratorEyOSH_
     (get_local $15)
     (get_local $7)
     (get_local $1)
@@ -1326,7 +1326,7 @@
   )
   (i32.const 1)
  )
- (func $_ZN11irespopolls11pollresultsD2Ev (param $0 i32) (result i32)
+ (func $_ZN11irespopolls10pollresultD2Ev (param $0 i32) (result i32)
   (local $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -4716,7 +4716,7 @@
   )
   (get_local $0)
  )
- (func $_ZNK5eosio11multi_indexILy12475845814445305856EN11irespopolls11pollresultsEJEE31load_object_by_primary_iteratorEl (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZNK5eosio11multi_indexILy12475845814445293568EN11irespopolls10pollresultEJEE31load_object_by_primary_iteratorEl (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -4966,7 +4966,7 @@
     (get_local $0)
    )
    (drop
-    (call $_ZrsIN5eosio10datastreamIPKcEEERT_S6_RN11irespopolls11pollresultsE
+    (call $_ZrsIN5eosio10datastreamIPKcEEERT_S6_RN11irespopolls10pollresultE
      (i32.add
       (get_local $8)
       (i32.const 32)
@@ -5045,7 +5045,7 @@
      )
      (br $label$7)
     )
-    (call $_ZNSt3__16vectorIN5eosio11multi_indexILy12475845814445305856EN11irespopolls11pollresultsEJEE8item_ptrENS_9allocatorIS6_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS5_4itemENS_14default_deleteISC_EEEERyRlEEEvDpOT_
+    (call $_ZNSt3__16vectorIN5eosio11multi_indexILy12475845814445293568EN11irespopolls10pollresultEJEE8item_ptrENS_9allocatorIS6_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS5_4itemENS_14default_deleteISC_EEEERyRlEEEvDpOT_
      (i32.add
       (get_local $0)
       (i32.const 24)
@@ -5079,7 +5079,7 @@
     )
    )
    (drop
-    (call $_ZN11irespopolls11pollresultsD2Ev
+    (call $_ZN11irespopolls10pollresultD2Ev
      (get_local $4)
     )
    )
@@ -5096,7 +5096,7 @@
   )
   (get_local $6)
  )
- (func $_ZN5eosio11multi_indexILy12475845814445305856EN11irespopolls11pollresultsEJEE7emplaceIZNS1_7addpollEyNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEySB_hhhyyNS5_6vectorIyNS9_IyEEEENSC_ISB_NS9_ISB_EEEESE_EUlRT_E_EENS3_14const_iteratorEyOSH_ (param $0 i32) (param $1 i32) (param $2 i64) (param $3 i32)
+ (func $_ZN5eosio11multi_indexILy12475845814445293568EN11irespopolls10pollresultEJEE7emplaceIZNS1_7addpollEyNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEySB_hhhyyNS5_6vectorIyNS9_IyEEEENSC_ISB_NS9_ISB_EEEESE_EUlRT_E_EENS3_14const_iteratorEyOSH_ (param $0 i32) (param $1 i32) (param $2 i64) (param $3 i32)
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
@@ -5204,7 +5204,7 @@
    (get_local $3)
    (get_local $1)
   )
-  (call $_ZZN5eosio11multi_indexILy12475845814445305856EN11irespopolls11pollresultsEJEE7emplaceIZNS1_7addpollEyNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEySB_hhhyyNS5_6vectorIyNS9_IyEEEENSC_ISB_NS9_ISB_EEEESE_EUlRT_E_EENS3_14const_iteratorEyOSH_ENKUlSI_E_clINS3_4itemEEEDaSI_
+  (call $_ZZN5eosio11multi_indexILy12475845814445293568EN11irespopolls10pollresultEJEE7emplaceIZNS1_7addpollEyNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEySB_hhhyyNS5_6vectorIyNS9_IyEEEENSC_ISB_NS9_ISB_EEEESE_EUlRT_E_EENS3_14const_iteratorEyOSH_ENKUlSI_E_clINS3_4itemEEEDaSI_
    (i32.add
     (get_local $7)
     (i32.const 16)
@@ -5278,7 +5278,7 @@
     )
     (br $label$0)
    )
-   (call $_ZNSt3__16vectorIN5eosio11multi_indexILy12475845814445305856EN11irespopolls11pollresultsEJEE8item_ptrENS_9allocatorIS6_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS5_4itemENS_14default_deleteISC_EEEERyRlEEEvDpOT_
+   (call $_ZNSt3__16vectorIN5eosio11multi_indexILy12475845814445293568EN11irespopolls10pollresultEJEE8item_ptrENS_9allocatorIS6_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS5_4itemENS_14default_deleteISC_EEEERyRlEEEvDpOT_
     (i32.add
      (get_local $1)
      (i32.const 24)
@@ -5321,7 +5321,7 @@
     )
    )
    (drop
-    (call $_ZN11irespopolls11pollresultsD2Ev
+    (call $_ZN11irespopolls10pollresultD2Ev
      (get_local $3)
     )
    )
@@ -5337,7 +5337,7 @@
    )
   )
  )
- (func $_ZZN5eosio11multi_indexILy12475845814445305856EN11irespopolls11pollresultsEJEE7emplaceIZNS1_7addpollEyNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEySB_hhhyyNS5_6vectorIyNS9_IyEEEENSC_ISB_NS9_ISB_EEEESE_EUlRT_E_EENS3_14const_iteratorEyOSH_ENKUlSI_E_clINS3_4itemEEEDaSI_ (param $0 i32) (param $1 i32)
+ (func $_ZZN5eosio11multi_indexILy12475845814445293568EN11irespopolls10pollresultEJEE7emplaceIZNS1_7addpollEyNSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEySB_hhhyyNS5_6vectorIyNS9_IyEEEENSC_ISB_NS9_ISB_EEEESE_EUlRT_E_EENS3_14const_iteratorEyOSH_ENKUlSI_E_clINS3_4itemEEEDaSI_ (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i64)
@@ -5359,7 +5359,7 @@
     (get_local $0)
    )
   )
-  (call $_ZZN11irespopolls7addpollEyNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEyS6_hhhyyNS0_6vectorIyNS4_IyEEEENS7_IS6_NS4_IS6_EEEES9_ENKUlRT_E_clINS_11pollresultsEEEDaSD_
+  (call $_ZZN11irespopolls7addpollEyNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEyS6_hhhyyNS0_6vectorIyNS4_IyEEEENS7_IS6_NS4_IS6_EEEES9_ENKUlRT_E_clINS_10pollresultEEEDaSD_
    (i32.load offset=4
     (get_local $0)
    )
@@ -5372,7 +5372,7 @@
    (i32.const 0)
   )
   (drop
-   (call $_ZlsIN5eosio10datastreamIjEEERT_S4_RKN11irespopolls11pollresultsE
+   (call $_ZlsIN5eosio10datastreamIjEEERT_S4_RKN11irespopolls10pollresultE
     (get_local $6)
     (get_local $1)
    )
@@ -5428,7 +5428,7 @@
    )
   )
   (drop
-   (call $_ZlsIN5eosio10datastreamIPcEEERT_S5_RKN11irespopolls11pollresultsE
+   (call $_ZlsIN5eosio10datastreamIPcEEERT_S5_RKN11irespopolls10pollresultE
     (get_local $6)
     (get_local $1)
    )
@@ -5439,7 +5439,7 @@
     (i64.load offset=8
      (get_local $2)
     )
-    (i64.const -5970898259264245760)
+    (i64.const -5970898259264258048)
     (i64.load
      (i32.load offset=8
       (get_local $0)
@@ -5500,7 +5500,7 @@
    )
   )
  )
- (func $_ZNSt3__16vectorIN5eosio11multi_indexILy12475845814445305856EN11irespopolls11pollresultsEJEE8item_ptrENS_9allocatorIS6_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS5_4itemENS_14default_deleteISC_EEEERyRlEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32)
+ (func $_ZNSt3__16vectorIN5eosio11multi_indexILy12475845814445293568EN11irespopolls10pollresultEJEE8item_ptrENS_9allocatorIS6_EEE24__emplace_back_slow_pathIJNS_10unique_ptrINS5_4itemENS_14default_deleteISC_EEEERyRlEEEvDpOT_ (param $0 i32) (param $1 i32) (param $2 i32) (param $3 i32)
   (local $4 i32)
   (local $5 i32)
   (local $6 i32)
@@ -5803,7 +5803,7 @@
       )
      )
      (drop
-      (call $_ZN11irespopolls11pollresultsD2Ev
+      (call $_ZN11irespopolls10pollresultD2Ev
        (get_local $1)
       )
      )
@@ -5830,7 +5830,7 @@
    )
   )
  )
- (func $_ZZN11irespopolls7addpollEyNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEyS6_hhhyyNS0_6vectorIyNS4_IyEEEENS7_IS6_NS4_IS6_EEEES9_ENKUlRT_E_clINS_11pollresultsEEEDaSD_ (param $0 i32) (param $1 i32)
+ (func $_ZZN11irespopolls7addpollEyNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEyS6_hhhyyNS0_6vectorIyNS4_IyEEEENS7_IS6_NS4_IS6_EEEES9_ENKUlRT_E_clINS_10pollresultEEEDaSD_ (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
   (i64.store
@@ -5990,7 +5990,7 @@
    )
   )
  )
- (func $_ZlsIN5eosio10datastreamIjEEERT_S4_RKN11irespopolls11pollresultsE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZlsIN5eosio10datastreamIjEEERT_S4_RKN11irespopolls10pollresultE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -6476,7 +6476,7 @@
   )
   (get_local $0)
  )
- (func $_ZlsIN5eosio10datastreamIPcEEERT_S5_RKN11irespopolls11pollresultsE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZlsIN5eosio10datastreamIPcEEERT_S5_RKN11irespopolls10pollresultE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (local $3 i32)
   (local $4 i32)
@@ -8075,7 +8075,7 @@
   )
   (unreachable)
  )
- (func $_ZrsIN5eosio10datastreamIPKcEEERT_S6_RN11irespopolls11pollresultsE (param $0 i32) (param $1 i32) (result i32)
+ (func $_ZrsIN5eosio10datastreamIPKcEEERT_S6_RN11irespopolls10pollresultE (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   (call $eosio_assert
    (i32.gt_u

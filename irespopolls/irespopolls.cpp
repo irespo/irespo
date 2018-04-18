@@ -44,7 +44,6 @@ public:
 //            options.push_back(option());
 //            options[index].optionId = *i;
 //        }
-
         auto iter = _pollresults.find(questionId);
 
         if(iter == _pollresults.end()){
@@ -85,7 +84,7 @@ public:
     };
 
     // @abi table
-    struct pollresults {
+    struct pollresult {
         uint64_t questionId;
         string questionText;
 
@@ -105,10 +104,10 @@ public:
 
         uint64_t primary_key() const {return questionId; }
 
-        EOSLIB_SERIALIZE( pollresults, (questionId)(questionText)(eventId)(eventName)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired)(startDateTimeUTC)(endDateTimeUTC)(optionIds)(optionTexts)(optionNumbersOfVotes))
+        EOSLIB_SERIALIZE( pollresult, (questionId)(questionText)(eventId)(eventName)(isEventPasswordProtected)(isLoggedUserRequired)(isEOSUserRequired)(startDateTimeUTC)(endDateTimeUTC)(optionIds)(optionTexts)(optionNumbersOfVotes))
     };
 
-    multi_index<N(pollresults), pollresults> _pollresults;
+    multi_index<N(pollresult), pollresult> _pollresults;
 };
 
 EOSIO_ABI( irespopolls, (setapp)(addpoll))
