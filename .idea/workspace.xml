@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a5c6108c-08b8-4588-ba6c-2dba0cd448c3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.abi" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.abi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls_rc.md" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls_rc.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,20 +31,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="irespopolls_rc.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="irespopolls_rc.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls_rc.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="162" />
+              <caret line="2" column="138" selection-start-line="2" selection-start-column="138" selection-end-line="2" selection-end-column="138" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="irespopolls.abi" pinned="false" current-in-tab="false">
+      <file leaf-file-name="irespopolls.abi" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="145" column="177" selection-start-line="145" selection-start-column="177" selection-end-line="145" selection-end-column="177" />
+            <state relative-caret-position="862">
+              <caret line="150" column="4" lean-forward="true" selection-start-line="143" selection-start-column="23" selection-end-line="150" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -153,12 +152,12 @@
       <workItem from="1523968869546" duration="28017000" />
       <workItem from="1524041031348" duration="8666000" />
       <workItem from="1524205839643" duration="848000" />
-      <workItem from="1525421574638" duration="3328000" />
+      <workItem from="1525421574638" duration="3578000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46557000" />
+    <option name="totallyTimeSpent" value="46807000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -247,17 +246,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="145" column="177" selection-start-line="145" selection-start-column="177" selection-end-line="145" selection-end-column="177" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls_rc.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="162" />
+          <caret line="2" column="138" selection-start-line="2" selection-start-column="138" selection-end-line="2" selection-end-column="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="862">
+          <caret line="150" column="4" lean-forward="true" selection-start-line="143" selection-start-column="23" selection-end-line="150" selection-end-column="4" />
         </state>
       </provider>
     </entry>
