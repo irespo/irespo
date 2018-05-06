@@ -10,10 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5c6108c-08b8-4588-ba6c-2dba0cd448c3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/irespopolls/irespopolls_rc.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.abi" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.abi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/irespopolls/irespopolls_rc.md" beforeDir="false" afterPath="$PROJECT_DIR$/irespopolls/irespopolls_rc.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,26 +26,26 @@
       <file leaf-file-name="irespopolls.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-504">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="374">
+              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="irespopolls_rc.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="irespopolls_rc.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls_rc.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="137" />
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="162" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="irespopolls.abi" pinned="false" current-in-tab="true">
+      <file leaf-file-name="irespopolls.abi" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="113" column="15" lean-forward="true" selection-start-line="113" selection-start-column="15" selection-end-line="113" selection-end-column="15" />
+            <state relative-caret-position="777">
+              <caret line="145" column="177" selection-start-line="145" selection-start-column="177" selection-end-line="145" selection-end-column="177" />
             </state>
           </provider>
         </entry>
@@ -68,9 +66,9 @@
       <list>
         <option value="$PROJECT_DIR$/irespopolls.cpp" />
         <option value="$PROJECT_DIR$/irespopoll/irespopolls.cpp" />
+        <option value="$PROJECT_DIR$/irespopolls/irespopolls.h" />
         <option value="$PROJECT_DIR$/irespopolls/irespopolls.cpp" />
         <option value="$PROJECT_DIR$/irespopolls/irespopolls_rc.md" />
-        <option value="$PROJECT_DIR$/irespopolls/irespopolls.h" />
         <option value="$PROJECT_DIR$/irespopolls/irespopolls.abi" />
       </list>
     </option>
@@ -155,12 +153,12 @@
       <workItem from="1523968869546" duration="28017000" />
       <workItem from="1524041031348" duration="8666000" />
       <workItem from="1524205839643" duration="848000" />
-      <workItem from="1525421574638" duration="2557000" />
+      <workItem from="1525421574638" duration="3328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45786000" />
+    <option name="totallyTimeSpent" value="46557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -244,22 +242,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-504">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls_rc.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="137" />
+        <state relative-caret-position="374">
+          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls.abi">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="113" column="15" lean-forward="true" selection-start-line="113" selection-start-column="15" selection-end-line="113" selection-end-column="15" />
+        <state relative-caret-position="777">
+          <caret line="145" column="177" selection-start-line="145" selection-start-column="177" selection-end-line="145" selection-end-column="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/irespopolls/irespopolls_rc.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="162" />
         </state>
       </provider>
     </entry>

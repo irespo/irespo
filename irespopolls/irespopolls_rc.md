@@ -1,6 +1,6 @@
 CLAUSE NAME: Contract owner
 
-CONTRACT OWNER. The contract has been written by IRESPO.COM SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ SPÓŁKA KOMANDYTOWA, ul. Jędrusik 6/53 01-748 Warszawa, Poland.
+CONTRACT OWNER. The contract has been written by IRESPO.COM SPOLKA Z OGRANICZONA ODPOWIEDZIALNOSCIA SPOLKA KOMANDYTOWA, ul. Jedrusik 6/53 01-748 Warszawa, Poland.
 
 CLAUSE NAME: Contract content
 
