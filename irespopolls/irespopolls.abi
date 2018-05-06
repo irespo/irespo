@@ -143,7 +143,7 @@
   ],
   "ricardian_clauses": [{
     "id": "Contract owner"
-    , "body": "CONTRACT OWNER. The contract has been written by IRESPO.COM SPOLKA Z OGRANICZONA ODPOWIEDZIALNOSCIA SPOLKA KOMANDYTOWA, ul. Jedrusik 6/53 01-748 Warszawa, Poland."
+    , "body": "CONTRACT OWNER. The contract has been written by IRESPO.COM SPOLKA Z OGRANICZONA ODPOWIEDZIALNOSCIA SPOLKA KOMANDYTOWA, ul. Jedrusik 6 m. 53 01-748 Warszawa, Poland."
   }, {
     "id": "Contract content"
     , "body": "CONTRACT CONTENT. The contract is meant to store the results of the polls contucted by the users of the IRESPO.COM application.
