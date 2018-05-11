@@ -42,4 +42,5 @@ Read our whitepaper here:
 [iRespo whitepaper](https://docs.google.com/document/d/1NbiPtC9r5CQGNz0pPl2mGnh5IJ3Xh8giKyk52SRhWO4/edit)
 
 ## License
-This project is licensed under the terms of the MIT license.
+This project GitHub respository is licensed under the terms of the MIT license.
+The [application source code](http://irespo.com) is the copyrighted property of iRespo.com.
