@@ -43,19 +43,19 @@ public:
     };
 
     struct config {
-        account_name application;
+        name application;
         EOSLIB_SERIALIZE(config, (application))
     };
 
-    typedef singleton<N(irespopolls), N(config), N(irespopolls), config> configs;
+    typedef singleton<N(config), config> configs;
 
     // @abi action
-    void setapp(account_name application){
+    void setapp(name application){
         require_auth(_self);
         require_auth(application);
 
-        eosio_assert(!configs::exists(), "Configuration already exists");
-        configs::set(config{application});
+        eosio_assert(!configs(_self, _self).exists(), "Configuration already exists");
+        configs(_self,_self).set(config{application}, application);
     }
 
     // @abi action
@@ -70,14 +70,14 @@ public:
            , uint64_t endDateTimeUTC
            , vector<option> options
     ){
-        eosio_assert(configs::exists(), "Application account not configured");
-        require_auth(configs::get().application);
+        eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+        require_auth(configs(_self, _self).get().application);
 
         auto iter = _pollresults.find(questionId);
 
         if(iter == _pollresults.end()){
 
-            _pollresults.emplace(configs::get().application, [&](auto& row){
+            _pollresults.emplace(configs(_self, _self).get().application, [&](auto& row){
                 row.questionId = questionId;
                 row.questionText = questionText;
                 row.eventId = eventId;
@@ -99,8 +99,8 @@ public:
 
     // @abi action
     void deletepoll(uint64_t questionId){
-        eosio_assert(configs::exists(), "Application account not configured");
-        require_auth(configs::get().application);
+        eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+        require_auth(configs(_self, _self).get().application);
 
         auto iter = _pollresults.find(questionId);
 
