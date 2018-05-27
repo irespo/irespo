@@ -61,6 +61,13 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="irespopolls\irespopolls.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="irespopolls\irespopolls.abi" />
+    <None Include="irespopolls\irespopolls.wasm" />
+    <None Include="irespopolls\irespopolls.wast" />
+    <None Include="irespopolls\irespopolls_rc.md" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
