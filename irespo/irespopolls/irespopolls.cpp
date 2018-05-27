@@ -20,7 +20,7 @@ public:
         EOSLIB_SERIALIZE(option , (optionId)(optionText)(numberOfVotes))
     };
 
-    // @abi action
+    // @abi table
     struct pollresult {
         uint64_t questionId;
         string questionText;
