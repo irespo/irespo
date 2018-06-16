@@ -1,5 +1,5 @@
 # iRespo
-### the blockchain solution for voting
+### disrupting polls and surveys on EOS
 
 ## What we have:
 [iRespo](http://irespo.com) has developed a solution for public voting during conferences and other events.
