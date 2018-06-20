@@ -4,11 +4,7 @@
 
 ## CLAUSE NAME: Contract content
 
-**CONTRACT CONTENT.** The contract is meant to store the results of the polls constructed by the users of the IRESPO.COM application. The users have accepted the terms of service available at IRESPO.COM website, as well as agreed to store the results on EOS.IO blockchain.
- 
-## CLAUSE NAME: Acknowledgment 
- 
-**ACKNOWLEDGMENT.** The users acknowledge that they will not add any content of an unlawful nature and they will construct the polls in a manner consistent with applicable law, terms of service, political correctness and rules of social coexistence and morality or personal rights of third parties, especially they will not use an abusive language.
+**CONTRACT CONTENT.** The contract is meant to store the hashes of the events constructed by the users of the IRESPO.COM application. The users have accepted the terms of service available at IRESPO.COM website, as well as agreed to store the results on EOS.IO blockchain.
  
 ## CLAUSE NAME: Entire Agreement
  
