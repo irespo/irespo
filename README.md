@@ -1,5 +1,5 @@
 # iRespo
-### the blockchain solution for voting
+### disrupting polls and surveys on EOS
 
 ## What we have:
 [iRespo](http://irespo.com) has developed a solution for public voting during conferences and other events.
@@ -25,6 +25,9 @@ The webapp:
        - questions and answers stored on the blockchain
     
 In future we plan to implement more complex contract:
+   - Payments 
+        - Users receive tokens for participation
+        - Organizers and participants receive tokens for sharing the data with other users
    - Credibility levels - adding 4th credibility level (1,2,3 already implemented)
        - Poll with no verification
        - Poll with password
