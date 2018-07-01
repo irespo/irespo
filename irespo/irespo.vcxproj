@@ -62,12 +62,17 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="irespoevents\irespoevents.cpp" />
+    <ClCompile Include="irespotokens\irespotokens.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="irespoevents\irespoevents.abi" />
     <None Include="irespoevents\irespoevents.wasm" />
     <None Include="irespoevents\irespoevents.wast" />
     <None Include="irespoevents\irespoevents_rc.md" />
+    <None Include="irespotokens\irespotokens.abi" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="irespotokens\irespotokens.hpp" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
