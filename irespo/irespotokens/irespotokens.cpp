@@ -67,7 +67,7 @@ namespace irespo {
 		auto sym_name = unlock.symbol.name();
 		stats statstable(_self, sym_name);
 		auto token = statstable.find(sym_name);
-		eosio_assert(token != statstable.end(), "token with symbol does not exist, create token before unlock.");
+		eosio_assert(token != statstable.end(), "token with symbol does not exist, create token before unlock");
 		const auto& st = *token;
 		require_auth(st.issuer);
 

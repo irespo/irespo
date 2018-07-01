@@ -64,8 +64,11 @@
       "name": "create",
       "type": "create",
       "ricardian_contract": ""
+    },{
+      "name": "unlock",
+      "type": "unlock",
+      "ricardian_contract": ""
     }
-
   ],
   "tables": [{
       "name": "accounts",

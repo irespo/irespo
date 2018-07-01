@@ -58,7 +58,7 @@
  (data (i32.const 864) "updater cannot change primary key when modifying an object\00")
  (data (i32.const 928) "active\00")
  (data (i32.const 944) "cannot pass end iterator to modify\00")
- (data (i32.const 992) "token with symbol does not exist, create token before unlock.\00")
+ (data (i32.const 992) "token with symbol does not exist, create token before unlock\00")
  (data (i32.const 1056) "cannot transfer to self\00")
  (data (i32.const 1088) "to account does not exist\00")
  (data (i32.const 1120) "unable to find key\00")
