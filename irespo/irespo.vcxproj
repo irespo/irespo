@@ -70,6 +70,8 @@
     <None Include="irespoevents\irespoevents.wast" />
     <None Include="irespoevents\irespoevents_rc.md" />
     <None Include="irespotokens\irespotokens.abi" />
+    <None Include="irespotokens\irespotokens.wasm" />
+    <None Include="irespotokens\irespotokens.wast" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="irespotokens\irespotokens.hpp" />
