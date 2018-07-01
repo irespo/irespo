@@ -22,6 +22,12 @@
         {"name":"transfer_locked", "type":"bool"}
      ]
   },{
+     "name": "unlock",
+     "base": "",
+     "fields": [
+        {"name":"unlock", "type":"asset"}
+     ]
+  },{
      "name": "issue",
      "base": "",
      "fields": [
