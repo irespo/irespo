@@ -139,6 +139,6 @@ namespace irespo {
 		}
 	}
 
-} /// namespace eosio
+} /// namespace irespo
 
 EOSIO_ABI(irespo::irespotokens, (create)(issue)(transfer)(unlock))

@@ -13,6 +13,8 @@ namespace eosiosystem {
 	class system_contract;
 }
 
+using namespace eosio;
+
 namespace irespo {
 
 	using std::string;
@@ -22,9 +24,12 @@ namespace irespo {
 		irespotokens(account_name self) :contract(self) {}
 
 		void create(account_name issuer,
-			asset        maximum_supply);
+			asset        maximum_supply,
+			bool         transfer_locked);
 
 		void issue(account_name to, asset quantity, string memo);
+
+		void unlock(asset unlock);
 
 		void transfer(account_name from,
 			account_name to,
@@ -47,6 +52,7 @@ namespace irespo {
 			asset          supply;
 			asset          max_supply;
 			account_name   issuer;
+			bool         transfer_locked;
 
 			uint64_t primary_key()const { return supply.symbol.name(); }
 		};
@@ -66,14 +72,14 @@ namespace irespo {
 		};
 	};
 
-	eosio::asset irespotokens::get_supply(symbol_name sym)const
+	asset irespotokens::get_supply(symbol_name sym)const
 	{
 		stats statstable(_self, sym);
 		const auto& st = statstable.get(sym);
 		return st.supply;
 	}
 
-	eosio::asset irespotokens::get_balance(account_name owner, symbol_name sym)const
+	asset irespotokens::get_balance(account_name owner, symbol_name sym)const
 	{
 		accounts accountstable(_self, owner);
 		const auto& ac = accountstable.get(sym);
