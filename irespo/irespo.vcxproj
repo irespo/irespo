@@ -62,6 +62,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="irespoevents\irespoevents.cpp" />
+    <ClCompile Include="iresporemove\iresporemove.cpp" />
     <ClCompile Include="irespotokens\irespotokens.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +70,9 @@
     <None Include="irespoevents\irespoevents.wasm" />
     <None Include="irespoevents\irespoevents.wast" />
     <None Include="irespoevents\irespoevents_rc.md" />
+    <None Include="iresporemove\iresporemove.abi" />
+    <None Include="iresporemove\iresporemove.wasm" />
+    <None Include="iresporemove\iresporemove.wast" />
     <None Include="irespotokens\irespotokens.abi" />
     <None Include="irespotokens\irespotokens.wasm" />
     <None Include="irespotokens\irespotokens.wast" />
