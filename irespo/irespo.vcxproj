@@ -62,6 +62,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="irespoevents\irespoevents.cpp" />
+    <ClCompile Include="irespooracle\irespooracle.cpp" />
     <ClCompile Include="iresporemove\iresporemove.cpp" />
     <ClCompile Include="irespotokens\irespotokens.cpp" />
   </ItemGroup>
@@ -70,6 +71,7 @@
     <None Include="irespoevents\irespoevents.wasm" />
     <None Include="irespoevents\irespoevents.wast" />
     <None Include="irespoevents\irespoevents_rc.md" />
+    <None Include="irespooracle\irespooracle.abi" />
     <None Include="iresporemove\iresporemove.abi" />
     <None Include="iresporemove\iresporemove.wasm" />
     <None Include="iresporemove\iresporemove.wast" />
@@ -78,6 +80,7 @@
     <None Include="irespotokens\irespotokens.wast" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="irespooracle\irespooracle.hpp" />
     <ClInclude Include="irespotokens\irespotokens.hpp" />
   </ItemGroup>
   <ItemDefinitionGroup />
