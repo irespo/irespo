@@ -11,7 +11,7 @@ namespace irespo {
 		configs(_self, _self).set(config{ application }, application);
 	}
 
-	void irespooracle::addeoracle(uint64_t id
+	void irespooracle::addoracle(uint64_t id
 		, string type
 		, uint64_t value
 		, string description
@@ -62,7 +62,7 @@ namespace irespo {
 		}
 		else {
 			oracletable.erase(iter);
-			print(iter => type, " deleted ");
+			print(iter -> type, " deleted ");
 		}
 	}
 

@@ -72,6 +72,8 @@
     <None Include="irespoevents\irespoevents.wast" />
     <None Include="irespoevents\irespoevents_rc.md" />
     <None Include="irespooracle\irespooracle.abi" />
+    <None Include="irespooracle\irespooracle.wasm" />
+    <None Include="irespooracle\irespooracle.wast" />
     <None Include="iresporemove\iresporemove.abi" />
     <None Include="iresporemove\iresporemove.wasm" />
     <None Include="iresporemove\iresporemove.wast" />
