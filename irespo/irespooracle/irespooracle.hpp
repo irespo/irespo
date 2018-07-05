@@ -1,6 +1,5 @@
 #pragma once
 
-#include <eosiolib/asset.hpp>
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/singleton.hpp>
 
@@ -14,7 +13,7 @@ namespace irespo {
 
 	class irespooracle : public contract {
 	public:
-		irespooracle(account_name self) :contract(self) {}
+		irespooracle(account_name self) :contract(self), oracles(_self, _self) {}
 
 		// @abi action
 		void setapp(name application);
@@ -23,21 +22,21 @@ namespace irespo {
 		void addoracle(uint64_t id
 			, string type
 			, uint64_t value
-			, string description
-			, uint64_t update_time);
+			, uint64_t update_time
+			, string description);
 
 		// @abi action
 		void deloracle(uint64_t id);
 
 
-	private:
+	//private:
 		// @abi table
 		struct oracle {
 			uint64_t id;
 			string type;
 			uint64_t value;
-			string description;
 			uint64_t update_time;
+			string description;
 
 			uint64_t primary_key() const { return id; };
 		};
@@ -46,12 +45,11 @@ namespace irespo {
 			name application;
 		};
 
-		typedef multi_index<N(oracles), oracle> oracles;
+		multi_index<N(oracle), oracle> oracles;
 		typedef singleton<N(config), config> configs;
 
 	};
-
-
+	
 }; /// namespace irespo
 
 EOSIO_ABI(irespo::irespooracle, (setapp)(addoracle)(deloracle))
