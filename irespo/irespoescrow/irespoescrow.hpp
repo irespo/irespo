@@ -3,6 +3,7 @@
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/singleton.hpp>
 #include <eosiolib/asset.hpp>
+#include <eosiolib/currency.hpp>
 
 #include <string>
 
@@ -25,7 +26,11 @@ namespace irespo {
 			asset  quantity,
 			string       memo);
 
-	//private:
+		void apply(const account_name contract, const account_name act);
+
+	private:
+
+		void transferReceived(const currency::transfer &transfer, const account_name code);
 		// @abi table
 		struct escrow {
 			uint64_t user_id;
@@ -45,4 +50,3 @@ namespace irespo {
 	
 }; /// namespace irespo
 
-EOSIO_ABI(irespo::irespoescrow, (setapp)(withdraw))
