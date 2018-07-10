@@ -14,7 +14,7 @@ namespace irespo {
 	void irespoescrow::withdraw(uint64_t from_user_id,
 		name to_account,
 		asset  quantity,
-		string       memo)
+		string memo)
 	{
 		
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
@@ -53,33 +53,38 @@ namespace irespo {
 	}
 
 	void irespoescrow::transferReceived(const currency::transfer &transfer, const account_name code) {
-		eosio_assert(static_cast<uint32_t>(code == N(eosio.token)), "needs to come from eosio.token");
-		eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the name");
-		eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(4, EOS)), "only EOS token allowed");
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+
+		eosio_assert(static_cast<uint32_t>(code == N(irespotokens)), "needs to come from irespotokens");
+		eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the user id");
+		eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(6, IRESPO)), "only IRESPO token allowed");
 		eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
 		eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must bet positive quantity");
+		eosio_assert(transfer.from == configs(_self, _self).get().application 
+			|| transfer.from == N(irespoicoico)
+			|| transfer.from == N(irespoappapp)
+			, "Only iRespo accounts allowed");
 
-		//if (transfer.to != _self) {
-		//	return;
-		//}
+		if (transfer.to != _self) {
+			return;
+		}
 
-		//auto idx = accounts.template get_index<N(bytwitter)>();
-		//auto act = idx.find(account::key(transfer.memo));
+		auto iter = escrows.find(std::stoull(transfer.memo));
 
-		//if (act != idx.end()) { // exists
-		//	idx.modify(act, 0, [&](account &act) {
-		//		act.balance = act.balance + transfer.quantity.amount;
-		//	});
+		if (iter != escrows.end())
+		{
+			escrows.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
+				row.quantity += transfer.quantity;
+			});
+		}
+		else
 
-		//}
-		//else { // no exist
-		//	accounts.emplace(_self, [&](account &act) {
-		//		act.pkey = accounts.available_primary_key();
-		//		act.twitter_key = account::key(transfer.memo);
-		//		act.twitter = transfer.memo;
-		//		act.balance = static_cast<uint64_t>(transfer.quantity.amount);
-		//	});
-		//}
+		{
+			escrows.emplace(configs(_self, _self).get().application, [&](auto& row) {
+				row.user_id = std::stoull(transfer.memo);
+				row.quantity = transfer.quantity;
+			});
+		}
 	}
 
 } /// namespace irespo
