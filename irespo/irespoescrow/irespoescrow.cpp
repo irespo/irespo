@@ -11,7 +11,7 @@ namespace irespo {
 		configs(_self, _self).set(config{ application }, application);
 	}
 
-	void irespoescrow::withraw(uint64_t from_user_id,
+	void irespoescrow::withdraw(uint64_t from_user_id,
 		name to_account,
 		asset  quantity,
 		string       memo)
@@ -32,7 +32,7 @@ namespace irespo {
 		eosio_assert(memo.size() <= 256, "memo has more than 256 bytes");
 
 		escrows.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
-			row.amount -= quantity;
+			row.quantity -= quantity;
 		});
 
 		action(permission_level{ _self, N(active) }, N(irespotokens), N(transfer),
