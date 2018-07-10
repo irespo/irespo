@@ -20,9 +20,10 @@ namespace irespo {
 		void setapp(name application);
 
 		// @abi action
-		void withdraw(uint64_t user_id, 
-			)
-
+		void withdraw(uint64_t from_user_id,
+			name to_account,
+			asset  quantity,
+			string       memo);
 
 	//private:
 		// @abi table
@@ -44,4 +45,4 @@ namespace irespo {
 	
 }; /// namespace irespo
 
-EOSIO_ABI(irespo::irespoescrow, (setapp))
+EOSIO_ABI(irespo::irespoescrow, (setapp)(withdraw))
