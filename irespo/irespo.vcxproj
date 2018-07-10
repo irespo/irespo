@@ -68,6 +68,7 @@
     <ClCompile Include="irespotokens\irespotokens.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="irespoescrow\irespoescrow.abi" />
     <None Include="irespoevents\irespoevents.abi" />
     <None Include="irespoevents\irespoevents.wasm" />
     <None Include="irespoevents\irespoevents.wast" />

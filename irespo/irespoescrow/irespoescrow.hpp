@@ -14,7 +14,7 @@ namespace irespo {
 
 	class irespoescrow : public contract {
 	public:
-		irespoescrow(account_name self) :contract(self), oracles(_self, _self) {}
+		irespoescrow(account_name self) :contract(self), escrows(_self, _self) {}
 
 		// @abi action
 		void setapp(name application);
