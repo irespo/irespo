@@ -19,6 +19,10 @@ namespace irespo {
 		// @abi action
 		void setapp(name application);
 
+		// @abi action
+		void withdraw(uint64_t user_id, 
+			)
+
 
 	//private:
 		// @abi table
