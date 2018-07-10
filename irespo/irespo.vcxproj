@@ -61,6 +61,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="irespoescrow\irespoescrow.cpp" />
     <ClCompile Include="irespoevents\irespoevents.cpp" />
     <ClCompile Include="irespooracle\irespooracle.cpp" />
     <ClCompile Include="iresporemove\iresporemove.cpp" />
@@ -82,6 +83,7 @@
     <None Include="irespotokens\irespotokens.wast" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="irespoescrow\irespoescrow.hpp" />
     <ClInclude Include="irespooracle\irespooracle.hpp" />
     <ClInclude Include="irespotokens\irespotokens.hpp" />
   </ItemGroup>
