@@ -47,12 +47,10 @@ namespace irespo {
 		}
 
 		auto &thiscontract = *this;
-		switch (act) {
-			EOSIO_ABI(irespoescrow, (setapp)(withdraw))
-		};
+		//switch (act) {
+			//EOSIO_ABI(irespoescrow, (setapp)(withdraw))
+		//};
 	}
-
-private:	
 
 	void irespoescrow::transferReceived(const currency::transfer &transfer, const account_name code) {
 		eosio_assert(static_cast<uint32_t>(code == N(eosio.token)), "needs to come from eosio.token");
@@ -86,10 +84,11 @@ private:
 
 } /// namespace irespo
 
-using namespace irespo;
-using namespace eosio;
-
 extern "C" {
+
+	using namespace irespo;
+	using namespace eosio;
+
 	void apply(uint64_t receiver, uint64_t code, uint64_t action) {
 		auto self = receiver;
 		irespoescrow contract(self);

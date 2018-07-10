@@ -28,9 +28,8 @@ namespace irespo {
 
 		void apply(const account_name contract, const account_name act);
 
-	private:
-
 		void transferReceived(const currency::transfer &transfer, const account_name code);
+
 		// @abi table
 		struct escrow {
 			uint64_t user_id;
@@ -48,5 +47,5 @@ namespace irespo {
 
 	};
 	
-}; /// namespace irespo
+} /// namespace irespo
 
