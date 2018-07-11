@@ -31,9 +31,16 @@ namespace irespo {
 		eosio_assert(quantity.symbol == iter->quantity.symbol, "symbol precision mismatch");
 		eosio_assert(memo.size() <= 256, "memo has more than 256 bytes");
 
-		escrows.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
-			row.quantity -= quantity;
-		});
+		if (iter->quantity != quantity)
+		{
+			escrows.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
+				row.quantity -= quantity;
+			});
+		}
+		else
+		{
+			escrows.erase(iter);
+		}		
 
 		action(permission_level{ _self, N(active) }, N(irespotokens), N(transfer),
 			make_tuple(_self, to_account, quantity, string("irespoescrow to user account"))).send();
