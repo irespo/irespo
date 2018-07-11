@@ -47,9 +47,10 @@ namespace irespo {
 		}
 
 		auto &thiscontract = *this;
-		//switch (act) {
-			//EOSIO_ABI(irespoescrow, (setapp)(withdraw))
-		//};
+
+		switch (act) {
+			EOSIO_API(irespoescrow, (setapp)(withdraw))
+		};
 	}
 
 	void irespoescrow::transferReceived(const currency::transfer &transfer, const account_name code) {
