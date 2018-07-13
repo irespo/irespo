@@ -65,8 +65,7 @@ namespace irespo {
 
 		while (iter != allowedusers.end())
 		{
-			allowedusers.erase(iter);
-			iter++;
+			iter = allowedusers.erase(iter);
 		}
 	}
 
