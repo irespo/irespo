@@ -31,7 +31,8 @@ namespace irespo {
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 		require_auth(configs(_self, _self).get().application);
 
-		for (auto&& n : v) {
+		for (auto& n : users)
+		{
 			auto iter = allowedusers.find(n);
 
 			if (iter == allowedusers.end()) {
@@ -41,6 +42,32 @@ namespace irespo {
 				});
 			}
 		}	
+	}
+
+	void irespoicoico::delauser(name user)
+	{
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
+
+		auto iter = allowedusers.find(user);
+
+		if (iter != allowedusers.end()) {
+			allowedusers.erase(iter);
+		}
+	}
+
+	void irespoicoico::delall(name application)
+	{
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
+
+		auto iter = allowedusers.begin();
+
+		while (iter != allowedusers.end())
+		{
+			allowedusers.erase(iter);
+			iter++;
+		}
 	}
 
 } /// namespace irespo
