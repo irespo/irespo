@@ -26,29 +26,22 @@ namespace irespo {
 		}
 	}
 
-	/*void irespoicoico::addausers(vector<name> user)
+	void irespoicoico::addausers(vector<name> users)
 	{
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 		require_auth(configs(_self, _self).get().application);
 
-		for (auto &attack : m_attack) 
-		{
-			if (attack->m_num == input)
-			{
-				attack->makeDamage();
+		for (auto&& n : v) {
+			auto iter = allowedusers.find(n);
+
+			if (iter == allowedusers.end()) {
+
+				allowedusers.emplace(configs(_self, _self).get().application, [&](auto& row) {
+					row.user = n;
+				});
 			}
-		}
-
-
-		auto iter = allowedusers.find(user);
-
-		if (iter == allowedusers.end()) {
-
-			allowedusers.emplace(configs(_self, _self).get().application, [&](auto& row) {
-				row.user = user;
-			});
-		}
-	}*/
+		}	
+	}
 
 } /// namespace irespo
 
