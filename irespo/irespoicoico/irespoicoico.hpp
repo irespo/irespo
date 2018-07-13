@@ -18,6 +18,14 @@ namespace irespo {
 		// @abi action
 		void setapp(name application);
 
+		struct config {
+			name application;
+		};
+
+		typedef singleton<N(config), config> configs;
+
 	}; /// namespace irespo
+
+
 
 EOSIO_ABI(irespo::irespoicoico, (setapp))
