@@ -22,13 +22,13 @@ namespace irespo {
 		void addauser(name user);
 
 		// @abi action
-		void addausers(vector<name> user);
+		void addausers(vector<name> users);
 
 		// @abi action
 		void delauser(name user);
 
 		// @abi action
-		void delausers(vector<name> user);
+		void delall(name application);
 
 		struct config {
 			name application;
@@ -49,4 +49,4 @@ namespace irespo {
 	}; /// namespace irespo
 }
 
-EOSIO_ABI(irespo::irespoicoico, (setapp))
+EOSIO_ABI(irespo::irespoicoico, (setapp)(addauser)(addausers)(delauser)(delall))

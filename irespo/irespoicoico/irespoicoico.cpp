@@ -11,5 +11,44 @@ namespace irespo {
 		configs(_self, _self).set(config{ application }, application);
 	}
 
+	void irespoicoico::addauser(name user)
+	{
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
+
+		auto iter = allowedusers.find(user);
+
+		if (iter == allowedusers.end()) {
+
+			allowedusers.emplace(configs(_self, _self).get().application, [&](auto& row) {
+				row.user = user;
+			});
+		}
+	}
+
+	/*void irespoicoico::addausers(vector<name> user)
+	{
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
+
+		for (auto &attack : m_attack) 
+		{
+			if (attack->m_num == input)
+			{
+				attack->makeDamage();
+			}
+		}
+
+
+		auto iter = allowedusers.find(user);
+
+		if (iter == allowedusers.end()) {
+
+			allowedusers.emplace(configs(_self, _self).get().application, [&](auto& row) {
+				row.user = user;
+			});
+		}
+	}*/
+
 } /// namespace irespo
 
