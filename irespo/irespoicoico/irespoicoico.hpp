@@ -18,12 +18,34 @@ namespace irespo {
 		// @abi action
 		void setapp(name application);
 
+		// @abi action
+		void addauser(name user);
+
+		// @abi action
+		void addausers(vector<name> user);
+
+		// @abi action
+		void delauser(name user);
+
+		// @abi action
+		void delausers(vector<name> user);
+
 		struct config {
 			name application;
 		};
 
 		typedef singleton<N(config), config> configs;
 
+		// @abi table
+		struct alloweduser {
+			name user;
+
+			name primary_key() const { return user; }
+
+			EOSLIB_SERIALIZE(alloweduser, (user))
+		};
+
+		multi_index<N(alloweduser), alloweduser> allowedusers;
 	}; /// namespace irespo
 
 
