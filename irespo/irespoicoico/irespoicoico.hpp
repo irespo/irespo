@@ -13,7 +13,7 @@ namespace irespo {
 
 	class irespoicoico : public contract {
 	public:
-		irespoicoico(account_name self) :contract(self){}
+		irespoicoico(account_name self) :contract(self), allowedusers(_self, _self) {}
 
 		// @abi action
 		void setapp(name application);
@@ -47,7 +47,6 @@ namespace irespo {
 
 		multi_index<N(alloweduser), alloweduser> allowedusers;
 	}; /// namespace irespo
-
-
+}
 
 EOSIO_ABI(irespo::irespoicoico, (setapp))
