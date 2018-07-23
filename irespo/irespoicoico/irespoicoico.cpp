@@ -82,5 +82,12 @@ namespace irespo {
 		}
 	}
 
+	void irespoicoico::icotransfer(name application)
+	{
+		oracles o(N(irespooracle), N(irespooracle));
+
+		auto iter = o.find(1);
+	}
+
 } /// namespace irespo
 

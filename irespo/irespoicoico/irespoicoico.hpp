@@ -13,7 +13,7 @@ namespace irespo {
 
 	class irespoicoico : public contract {
 	public:
-		irespoicoico(account_name self) :contract(self), allowedicos(_self, _self) {}
+		irespoicoico(account_name self) :contract(self), allowedicos(_self, _self){}
 
 		// @abi table
 		struct allowedico {
@@ -23,6 +23,16 @@ namespace irespo {
 			uint64_t primary_key() const { return ico_id; }
 
 			EOSLIB_SERIALIZE(allowedico, (ico_id)(user))
+		};
+
+		struct oracle {
+			uint64_t id;
+			string type;
+			uint64_t value;
+			uint64_t update_time;
+			string description;
+
+			uint64_t primary_key() const { return id; };
 		};
 
 		// @abi action
@@ -40,6 +50,9 @@ namespace irespo {
 		// @abi action
 		void delall(name application);
 
+		// @abi action
+		void icotransfer(name application);
+
 		struct config {
 			name application;
 		};
@@ -47,7 +60,10 @@ namespace irespo {
 		typedef singleton<N(config), config> configs;
 
 		multi_index<N(allowedico), allowedico> allowedicos;
+
+		typedef multi_index<N(oracle), oracle> oracles;
+
 	}; /// namespace irespo
 }
 
-EOSIO_ABI(irespo::irespoicoico, (setapp)(addauser)(addausers)(delauser)(delall))
+EOSIO_ABI(irespo::irespoicoico, (setapp)(addauser)(addausers)(delauser)(delall)(icotransfer))
