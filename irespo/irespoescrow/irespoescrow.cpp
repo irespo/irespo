@@ -63,35 +63,38 @@ namespace irespo {
 	void irespoescrow::transferReceived(const currency::transfer &transfer, const account_name code) {
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 
-		eosio_assert(static_cast<uint32_t>(code == N(irespotokens)), "needs to come from irespotokens");
-		eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the user id");
-		eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(6, IRESPO)), "only IRESPO token allowed");
-		eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
-		eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must bet positive quantity");
-		eosio_assert(transfer.from == configs(_self, _self).get().application 
-			|| transfer.from == N(irespoicoico)
-			|| transfer.from == N(irespoappapp)
-			, "Only iRespo accounts allowed");
+		if(transfer.quantity.symbol == S(6, IRESPO))
+		{ 
+			eosio_assert(static_cast<uint32_t>(code == N(irespotokens)), "needs to come from irespotokens");
+			eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the user id");
+			//eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(6, IRESPO)), "only IRESPO token allowed");
+			eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
+			eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must bet positive quantity");
+			eosio_assert(transfer.from == configs(_self, _self).get().application 
+				|| transfer.from == N(irespoicoico)
+				|| transfer.from == N(irespoappapp)
+				, "Only iRespo accounts allowed");
 
-		if (transfer.to != _self) {
-			return;
-		}
+			if (transfer.to != _self) {
+				return;
+			}
 
-		auto iter = escrows.find(std::stoull(transfer.memo));
+			auto iter = escrows.find(std::stoull(transfer.memo));
 
-		if (iter != escrows.end())
-		{
-			escrows.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
-				row.quantity += transfer.quantity;
-			});
-		}
-		else
+			if (iter != escrows.end())
+			{
+				escrows.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
+					row.quantity += transfer.quantity;
+				});
+			}
+			else
 
-		{
-			escrows.emplace(configs(_self, _self).get().application, [&](auto& row) {
-				row.user_id = std::stoull(transfer.memo);
-				row.quantity = transfer.quantity;
-			});
+			{
+				escrows.emplace(configs(_self, _self).get().application, [&](auto& row) {
+					row.user_id = std::stoull(transfer.memo);
+					row.quantity = transfer.quantity;
+				});
+			}
 		}
 	}
 
