@@ -16,41 +16,41 @@ namespace irespo {
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 		require_auth(configs(_self, _self).get().application);
 
-		auto iter = allowedusrs.find(ico_id);
+		auto iter = allowedicos.find(ico_id);
 
-		if (iter == allowedusrs.end()) {
+		if (iter == allowedicos.end()) {
 
-			allowedusrs.emplace(configs(_self, _self).get().application, [&](auto& row) {
+			allowedicos.emplace(configs(_self, _self).get().application, [&](auto& row) {
 				row.ico_id = ico_id;
 				row.user = user;
 			});
 		}
 		else{
-			allowedusrs.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
+			allowedicos.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
 				row.user = user;
 			});
 		}
 	}
 
-	void irespoicoico::addausers(vector<allowedusr> users)
+	void irespoicoico::addausers(vector<allowedico> users)
 	{
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 		require_auth(configs(_self, _self).get().application);
 
 		for (auto& n : users)
 		{
-			auto iter = allowedusrs.find(n.ico_id);
+			auto iter = allowedicos.find(n.ico_id);
 
-			if (iter == allowedusrs.end()) {
+			if (iter == allowedicos.end()) {
 
-				allowedusrs.emplace(configs(_self, _self).get().application, [&](auto& row) {
+				allowedicos.emplace(configs(_self, _self).get().application, [&](auto& row) {
 					row.ico_id = n.ico_id;
 					row.user = n.user;
 				});
 			}
 			else
 			{
-				allowedusrs.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
+				allowedicos.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
 					row.user = n.user;
 				});
 			}
@@ -62,10 +62,10 @@ namespace irespo {
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 		require_auth(configs(_self, _self).get().application);
 
-		auto iter = allowedusrs.find(ico_id);
+		auto iter = allowedicos.find(ico_id);
 
-		if (iter != allowedusrs.end()) {
-			allowedusrs.erase(iter);
+		if (iter != allowedicos.end()) {
+			allowedicos.erase(iter);
 		}
 	}
 
@@ -74,11 +74,11 @@ namespace irespo {
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 		require_auth(configs(_self, _self).get().application);
 
-		auto iter = allowedusrs.begin();
+		auto iter = allowedicos.begin();
 
-		while (iter != allowedusrs.end())
+		while (iter != allowedicos.end())
 		{
-			iter = allowedusrs.erase(iter);
+			iter = allowedicos.erase(iter);
 		}
 	}
 
