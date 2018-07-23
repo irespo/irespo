@@ -22,7 +22,7 @@ namespace irespo {
 
 			uint64_t primary_key() const { return ico_id; }
 
-			EOSLIB_SERIALIZE(allowedusr, (user))
+			EOSLIB_SERIALIZE(allowedusr, (ico_id)(user))
 		};
 
 		// @abi action
