@@ -182,12 +182,18 @@ namespace irespo {
 			auto iterOracle = o.find(oracle_id);
 			uint64_t value = iterOracle->value;
 
-			eosio_assert(50000 <= value && value <= 200000, "Check EOS/USD rate");
+			eosio_assert(50000 <= value && value <= 200000, "Check EOS/USD rate");			
 
 			uint64_t ico_id = std::stoull(transfer.memo);
 			auto iterUser = allowedicos.find(ico_id);
 			
+			//the sending account must match the one registered in our app - memo should contain the ico_id that can be found in the account settings
 			require_auth(iterUser->user);
+
+
+			//sending IRESPO TOKENS
+			action(permission_level{ _self, N(active) }, N(irespotokens), N(transfer),
+				make_tuple(_self, to_account, quantity, string("irespoescrow to user account"))).send();
 
 		}
 		
