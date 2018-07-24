@@ -136,6 +136,50 @@ namespace irespo {
 		}
 	}
 
+	void irespoicoico::apply(const account_name contract, const account_name act) {
+
+		if (act == N(transfer)) {
+			transferReceived(unpack_action_data<currency::transfer>(), contract);
+			return;
+		}
+
+		auto &thiscontract = *this;
+
+		switch (act) {
+			EOSIO_API(irespoicoico, (setapp)(setico)(addauser)(addausers)(delauser)(delall)(logdata)(dellogdata))
+		};
+	}
+
+	void irespoicoico::transferReceived(const currency::transfer &transfer, const account_name code) {
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+
+		if (code != N(irespoappapp))
+		{
+			eosio_assert(static_cast<uint32_t>(code == N(eosio.token)), "needs to come from eosio.token");
+			eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the name");
+			eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(4, EOS)), "only EOS token allowed");
+			eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
+			eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must bet positive quantity");
+
+			if (transfer.to != _self) {
+				return;
+			}
+
+		}
+		
+	}
 
 } /// namespace irespo
 
+extern "C" {
+
+	using namespace irespo;
+	using namespace eosio;
+
+	void apply(uint64_t receiver, uint64_t code, uint64_t action) {
+		auto self = receiver;
+		irespoicoico contract(self);
+		contract.apply(code, action);
+		eosio_exit(0);
+	}
+}

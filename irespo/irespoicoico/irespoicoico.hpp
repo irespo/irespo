@@ -2,7 +2,8 @@
 
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/singleton.hpp>
-
+#include <eosiolib/asset.hpp>
+#include <eosiolib/currency.hpp>
 #include <string>
 
 using namespace eosio;
@@ -80,7 +81,12 @@ namespace irespo {
 		void logdata(name application);
 
 		// @abi action
-		void dellogdata(name application);				
+		void dellogdata(name application);			
+
+		void apply(const account_name contract, const account_name act);
+
+		void transferReceived(const currency::transfer &transfer, const account_name code);
+
 
 		typedef singleton<N(config), config> configs;
 		typedef singleton<N(icoconfig), icoconfig> icoconfigs;
