@@ -13767,11 +13767,8 @@
     (set_local $9
      (i64.div_u
       (i64.mul
-       (i64.mul
-        (get_local $12)
-        (get_local $13)
-       )
-       (i64.const 10000)
+       (get_local $13)
+       (get_local $12)
       )
       (i64.const 15)
      )
