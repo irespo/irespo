@@ -107,7 +107,7 @@ namespace irespo {
 		auto iterOracle = o.find(1);
 		auto iterLog = l.find(currentTime);
 
-		if (iterLog != l.end()) {
+		if (iterLog == l.end()) {
 			l.emplace(configs(_self, _self).get().application, [&](auto& row) {
 				row.logtime = currentTime;
 				row.irespooracle = icocon.irespooracle;
