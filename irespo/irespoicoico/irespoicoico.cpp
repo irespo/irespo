@@ -84,10 +84,11 @@ namespace irespo {
 
 	void irespoicoico::logdata(name application)
 	{
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+
 		auto con = configs(_self, _self).get();
 
-		eosio_assert(con.exists(), "Application account not configured");
-		require_auth(con.get().application);
+		require_auth(con.application);
 		
 		name irespooracle = con.irespooracle;
 		uint64_t currentTime = current_time();
@@ -103,10 +104,11 @@ namespace irespo {
 			l.emplace(con.application, [&](auto& row) {
 				row.logtime = currentTime;
 				row.irespooracle = con.irespooracle;
-				row.exchangerate = iterOracle -> value;
+				row.exchangerate = iterOracle->value;
 				row.icostarttime = con.icostarttime;
 				row.icoendtime = con.icoendtime;
-		});
+			});
+		}
 
 	}
 
