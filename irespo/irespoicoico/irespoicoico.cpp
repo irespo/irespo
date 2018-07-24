@@ -2,13 +2,21 @@
 
 namespace irespo {
 
-	void irespoicoico::setapp(name application, name irespooracle, uint32_t icostarttime, uint32_t icoendtime)
+	void irespoicoico::setapp(name application)
 	{
 		require_auth(_self);
 		require_auth(application);
 
-		//eosio_assert(!configs(_self, _self).exists(), "Configuration already exists");
-		configs(_self, _self).set(config{ application, irespooracle,  icostarttime,  icoendtime }, application);
+		eosio_assert(!configs(_self, _self).exists(), "Configuration already exists");
+		configs(_self, _self).set(config{ application }, application);
+	}
+
+	void irespoicoico::setico(name irespooracle, uint32_t icostarttime, uint32_t icoendtime)
+	{
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
+
+		icoconfigs(_self, _self).set(icoconfig{irespooracle,  icostarttime,  icoendtime }, configs(_self, _self).get().application);
 	}
 
 	void irespoicoico::addauser(uint64_t ico_id, name user)
@@ -85,12 +93,11 @@ namespace irespo {
 	void irespoicoico::logdata(name application)
 	{
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
 
-		auto con = configs(_self, _self).get();
+		auto icocon = icoconfigs(_self, _self).get();
 
-		require_auth(con.application);
-		
-		name irespooracle = con.irespooracle;
+		name irespooracle = icocon.irespooracle;
 		uint64_t currentTime = current_time();
 
 		logs l(_self, _self);
@@ -101,12 +108,12 @@ namespace irespo {
 		auto iterLog = l.find(currentTime);
 
 		if (iterLog != l.end()) {
-			l.emplace(con.application, [&](auto& row) {
+			l.emplace(configs(_self, _self).get().application, [&](auto& row) {
 				row.logtime = currentTime;
-				row.irespooracle = con.irespooracle;
+				row.irespooracle = icocon.irespooracle;
 				row.exchangerate = iterOracle->value;
-				row.icostarttime = con.icostarttime;
-				row.icoendtime = con.icoendtime;
+				row.icostarttime = icocon.icostarttime;
+				row.icoendtime = icocon.icoendtime;
 			});
 		}
 

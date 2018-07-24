@@ -49,14 +49,20 @@ namespace irespo {
 		};
 
 		struct config {
-			name application;
+			name application;			
+		};
+
+		struct icoconfig {
 			name irespooracle;
 			uint32_t icostarttime;
 			uint32_t icoendtime;
 		};
 
 		// @abi action
-		void setapp(name application, name irespooracle, uint32_t icostarttime, uint32_t icoendtime);
+		void setapp(name application);
+
+		// @abi action
+		void setico(name irespooracle, uint32_t icostarttime, uint32_t icoendtime);
 
 		// @abi action
 		void addauser(uint64_t ico_id, name user);
@@ -77,6 +83,7 @@ namespace irespo {
 		void dellogdata(name application);				
 
 		typedef singleton<N(config), config> configs;
+		typedef singleton<N(icoconfig), icoconfig> icoconfigs;
 
 		multi_index<N(allowedico), allowedico> allowedicos;
 
@@ -86,4 +93,4 @@ namespace irespo {
 	}; /// namespace irespo
 }
 
-EOSIO_ABI(irespo::irespoicoico, (setapp)(addauser)(addausers)(delauser)(delall)(logdata)(dellogdata))
+EOSIO_ABI(irespo::irespoicoico, (setapp)(setico)(addauser)(addausers)(delauser)(delall)(logdata)(dellogdata))
