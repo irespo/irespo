@@ -82,11 +82,25 @@ namespace irespo {
 		}
 	}
 
-	void irespoicoico::icotransfer(name application)
+	void irespoicoico::logdata(name application)
 	{
-		oracles o(N(irespooracle), N(irespooracle));
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
+
+		logs l(_self, _self);
+		oracles o(N(irespooraclz), N(irespooraclz));
 
 		auto iter = o.find(1);
+
+	}
+
+	void irespoicoico::dellogdata(name application)
+	{
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
+
+		logs l(_self, _self);
+
 	}
 
 } /// namespace irespo

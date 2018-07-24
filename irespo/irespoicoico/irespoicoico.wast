@@ -36,7 +36,7 @@
  (data (i32.const 16) "onerror\00")
  (data (i32.const 32) "eosio\00")
  (data (i32.const 48) "onerror action\'s are only valid from the \"eosio\" system account\00")
- (data (i32.const 112) "irespooracle\00")
+ (data (i32.const 112) "irespooraclz\00")
  (data (i32.const 128) "object passed to iterator_to is not in multi_index\00")
  (data (i32.const 192) "error reading iterator\00")
  (data (i32.const 224) "read\00")
