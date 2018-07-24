@@ -2,13 +2,13 @@
 
 namespace irespo {
 
-	void irespoicoico::setapp(name application)
+	void irespoicoico::setapp(name application, name irespooracle, uint32_t icostarttime, uint32_t icoendtime)
 	{
 		require_auth(_self);
 		require_auth(application);
 
-		eosio_assert(!configs(_self, _self).exists(), "Configuration already exists");
-		configs(_self, _self).set(config{ application }, application);
+		//eosio_assert(!configs(_self, _self).exists(), "Configuration already exists");
+		configs(_self, _self).set(config{ application, irespooracle,  icostarttime,  icoendtime }, application);
 	}
 
 	void irespoicoico::addauser(uint64_t ico_id, name user)
@@ -84,13 +84,29 @@ namespace irespo {
 
 	void irespoicoico::logdata(name application)
 	{
-		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
-		require_auth(configs(_self, _self).get().application);
+		auto con = configs(_self, _self).get();
+
+		eosio_assert(con.exists(), "Application account not configured");
+		require_auth(con.get().application);
+		
+		name irespooracle = con.irespooracle;
+		uint32_t now = now();
 
 		logs l(_self, _self);
-		oracles o(N(irespooraclz), N(irespooraclz));
 
-		auto iter = o.find(1);
+		oracles o(irespooracle, irespooracle);
+
+		auto iterOracle = o.find(1);
+		auto iterLog = l.find(now);
+
+		if (iterLog != l.end()) {
+			l.emplace(con.application, [&](auto& row) {
+				row.logtime = now;
+				row.irespooracle = con.irespooracle;
+				row.exchangerate = iterOracle -> value;
+				row.icostarttime = con.icostarttime;
+				row.icoendtime = con.icoendtime;
+		});
 
 	}
 
@@ -101,7 +117,14 @@ namespace irespo {
 
 		logs l(_self, _self);
 
+		auto iter = l.begin();
+
+		while (iter != l.end())
+		{
+			iter = l.erase(iter);
+		}
 	}
+
 
 } /// namespace irespo
 

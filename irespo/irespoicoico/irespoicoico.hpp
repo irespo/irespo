@@ -30,12 +30,12 @@ namespace irespo {
 			uint32_t logtime;
 			name irespooracle;
 			uint64_t exchangerate;
-			uint32_t icostartdate;
-			uint32_t icoenddate;
+			uint32_t icostarttime;
+			uint32_t icoendtime;
 
 		    uint32_t primary_key() const { return logtime; }
 
-			EOSLIB_SERIALIZE(log, (logtime)(irespooracle)(exchangerate)(icostartdate)(icoenddate))
+			EOSLIB_SERIALIZE(log, (logtime)(irespooracle)(exchangerate)(icostarttime)(icoendtime))
 		};
 
 		struct oracle {
@@ -49,7 +49,7 @@ namespace irespo {
 		};
 
 		// @abi action
-		void setapp(name application, name irespooracle, uint32_t icostartdate, uint32_t icoenddate);
+		void setapp(name application, name irespooracle, uint32_t icostarttime, uint32_t icoendtime);
 
 		// @abi action
 		void addauser(uint64_t ico_id, name user);
@@ -71,6 +71,9 @@ namespace irespo {
 
 		struct config {
 			name application;
+			name irespooracle;
+			uint32_t icostarttime;
+			uint32_t icoendtime;
 		};
 
 		typedef singleton<N(config), config> configs;
