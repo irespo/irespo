@@ -172,11 +172,11 @@ namespace irespo {
 			name irespooracle = icocon.irespooracle;
 			uint32_t icostarttime = icocon.icostarttime;
 			uint32_t icoendtime = icocon.icoendtime;
-			uint32_t now = now();
+			uint32_t nowTime = now();
 
 			//dates within ICO
-			eosio_assert(icostarttime < now, "ICO has not started");
-			eosio_assert(now < icoendtime, "ICO has ended");
+			eosio_assert(icostarttime < nowTime, "ICO has not started");
+			eosio_assert(nowTime  < icoendtime, "ICO has ended");
 
 			oracles o(irespooracle, irespooracle);
 			auto iterOracle = o.find(oracle_id);

@@ -99,4 +99,4 @@ namespace irespo {
 	}; /// namespace irespo
 }
 
-EOSIO_ABI(irespo::irespoicoico, (setapp)(setico)(addauser)(addausers)(delauser)(delall)(logdata)(dellogdata))
+//EOSIO_ABI(irespo::irespoicoico, (setapp)(setico)(addauser)(addausers)(delauser)(delall)(logdata)(dellogdata))
