@@ -155,6 +155,9 @@ namespace irespo {
 		
 		if (code != N(irespoappapp))
 		{
+			if (transfer.to != _self) {
+				return;
+			}
 			eosio_assert(icoconfigs(_self, _self).exists(), "ICO not configured");
 
 			eosio_assert(static_cast<uint32_t>(code == N(eosio.token)), "needs to come from eosio.token");
@@ -162,10 +165,6 @@ namespace irespo {
 			eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(4, EOS)), "only EOS token allowed");
 			eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
 			eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must be positive quantity");
-
-			if (transfer.to != _self) {
-				return;
-			}
 
 			uint64_t oracle_id = 1;
 			auto icocon = icoconfigs(_self, _self).get();
@@ -193,7 +192,7 @@ namespace irespo {
 			asset receivedEOS = transfer.quantity;
 			uint64_t EOSamount = receivedEOS.amount;
 			uint64_t priceInUSDcents = 15;
-			uint64_t IRESPOamount = (EOSamount * USDrate * 100 * 100) / priceInUSDcents;
+			uint64_t IRESPOamount = (EOSamount * USDrate) / priceInUSDcents;
 
 			asset IRESPOtoSend = asset(IRESPOamount, S(6, IRESPO));
 			//sending IRESPO TOKENS
