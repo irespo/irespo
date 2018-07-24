@@ -92,7 +92,9 @@ namespace irespo {
 
 	void irespoicoico::logdata(name application)
 	{
-		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		uint64_t oracle_id = 1;
+
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured ");
 		require_auth(configs(_self, _self).get().application);
 
 		auto icocon = icoconfigs(_self, _self).get();
@@ -104,7 +106,7 @@ namespace irespo {
 
 		oracles o(irespooracle, irespooracle);
 
-		auto iterOracle = o.find(1);
+		auto iterOracle = o.find(oracle_id);
 		auto iterLog = l.find(currentTime);
 
 		if (iterLog == l.end()) {
