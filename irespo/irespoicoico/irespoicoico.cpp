@@ -183,6 +183,12 @@ namespace irespo {
 			uint64_t value = iterOracle->value;
 
 			eosio_assert(50000 <= value && value <= 200000, "Check EOS/USD rate");
+
+			uint64_t ico_id = std::stoull(transfer.memo);
+			auto iterUser = allowedicos.find(ico_id);
+			
+			require_auth(iterUser->user);
+
 		}
 		
 	}
