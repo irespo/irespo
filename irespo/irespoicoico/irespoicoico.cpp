@@ -152,19 +152,37 @@ namespace irespo {
 
 	void irespoicoico::transferReceived(const currency::transfer &transfer, const account_name code) {
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
-
+		
 		if (code != N(irespoappapp))
 		{
+			eosio_assert(icoconfigs(_self, _self).exists(), "ICO not configured");
+
 			eosio_assert(static_cast<uint32_t>(code == N(eosio.token)), "needs to come from eosio.token");
 			eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the name");
 			eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(4, EOS)), "only EOS token allowed");
 			eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
-			eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must bet positive quantity");
+			eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must be positive quantity");
 
 			if (transfer.to != _self) {
 				return;
 			}
 
+			uint64_t oracle_id = 1;
+			auto icocon = icoconfigs(_self, _self).get();
+			name irespooracle = icocon.irespooracle;
+			uint32_t icostarttime = icocon.icostarttime;
+			uint32_t icoendtime = icocon.icoendtime;
+			uint32_t now = now();
+
+			//dates within ICO
+			eosio_assert(icostarttime < now, "ICO has not started");
+			eosio_assert(now < icoendtime, "ICO has ended");
+
+			oracles o(irespooracle, irespooracle);
+			auto iterOracle = o.find(oracle_id);
+			uint64_t value = iterOracle->value;
+
+			eosio_assert(50000 <= value && value <= 200000, "Check EOS/USD rate");
 		}
 		
 	}
