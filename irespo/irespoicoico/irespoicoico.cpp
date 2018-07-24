@@ -90,18 +90,18 @@ namespace irespo {
 		require_auth(con.get().application);
 		
 		name irespooracle = con.irespooracle;
-		uint32_t now = now();
+		uint64_t currentTime = current_time();
 
 		logs l(_self, _self);
 
 		oracles o(irespooracle, irespooracle);
 
 		auto iterOracle = o.find(1);
-		auto iterLog = l.find(now);
+		auto iterLog = l.find(currentTime);
 
 		if (iterLog != l.end()) {
 			l.emplace(con.application, [&](auto& row) {
-				row.logtime = now;
+				row.logtime = currentTime;
 				row.irespooracle = con.irespooracle;
 				row.exchangerate = iterOracle -> value;
 				row.icostarttime = con.icostarttime;
