@@ -180,9 +180,9 @@ namespace irespo {
 
 			oracles o(irespooracle, irespooracle);
 			auto iterOracle = o.find(oracle_id);
-			uint64_t value = iterOracle->value;
+			uint64_t USDrate = iterOracle->value;
 
-			eosio_assert(50000 <= value && value <= 200000, "Check EOS/USD rate");			
+			eosio_assert(50000 <= USDrate && USDrate <= 200000, "Check EOS/USD rate");
 
 			uint64_t ico_id = std::stoull(transfer.memo);
 			auto iterUser = allowedicos.find(ico_id);
@@ -190,10 +190,15 @@ namespace irespo {
 			//the sending account must match the one registered in our app - memo should contain the ico_id that can be found in the account settings
 			require_auth(iterUser->user);
 
+			asset receivedEOS = transfer.quantity;
+			uint64_t EOSamount = receivedEOS.amount;
+			uint64_t priceInUSDcents = 15;
+			uint64_t IRESPOamount = (EOSamount * USDrate * 100 * 100) / priceInUSDcents;
 
+			asset IRESPOtoSend = asset(IRESPOamount, S(6, IRESPO));
 			//sending IRESPO TOKENS
 			action(permission_level{ _self, N(active) }, N(irespotokens), N(transfer),
-				make_tuple(_self, to_account, quantity, string("irespoescrow to user account"))).send();
+				make_tuple(_self, transfer.from, IRESPOtoSend, string("irespoescrow to user account"))).send();
 
 		}
 		
