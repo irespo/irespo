@@ -164,7 +164,7 @@ namespace irespo {
 			eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the name");
 			eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(4, EOS)), "only EOS token allowed");
 			eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
-			eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must be positive quantity");
+			eosio_assert(static_cast<uint32_t>(transfer.quantity.amount >= 1000), "must be at least 0.1 EOS");
 
 			uint64_t oracle_id = 1;
 			auto icocon = icoconfigs(_self, _self).get();
