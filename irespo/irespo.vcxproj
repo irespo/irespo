@@ -72,6 +72,7 @@
     <None Include="irespoescrow\irespoescrow.abi" />
     <None Include="irespoescrow\irespoescrow.wasm" />
     <None Include="irespoescrow\irespoescrow.wast" />
+    <None Include="irespoescrow\irespoescrow_rc.md" />
     <None Include="irespoescrow\readme.md" />
     <None Include="irespoevents\irespoevents.abi" />
     <None Include="irespoevents\irespoevents.wasm" />
