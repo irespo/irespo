@@ -8,7 +8,7 @@
 
 ## CLAUSE NAME: Acknowledgment 
 
-**ACKNOWLEDGMENT.** The users acknowledge that the price of an IRESPO token is 0,15 USD gross.
+**ACKNOWLEDGMENT.** The users acknowledge that the price of an IRESPO token is 0.15 USD gross.
 
 ## CLAUSE NAME: Entire Agreement
 
