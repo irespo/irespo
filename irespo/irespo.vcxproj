@@ -75,10 +75,12 @@
     <None Include="irespoescrow\irespoescrow.wast" />
     <None Include="irespoescrow\irespoescrow_rc.md" />
     <None Include="irespoescrow\readme.md" />
+    <None Include="irespoevents\commands.md" />
     <None Include="irespoevents\irespoevents.abi" />
     <None Include="irespoevents\irespoevents.wasm" />
     <None Include="irespoevents\irespoevents.wast" />
     <None Include="irespoevents\irespoevents_rc.md" />
+    <None Include="irespoicoico\commands.md" />
     <None Include="irespoicoico\irespoicoico.abi" />
     <None Include="irespoicoico\irespoicoico.wasm" />
     <None Include="irespoicoico\irespoicoico.wast" />
