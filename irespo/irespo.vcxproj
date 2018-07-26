@@ -92,6 +92,7 @@
     <None Include="irespotokens\irespotokens.abi" />
     <None Include="irespotokens\irespotokens.wasm" />
     <None Include="irespotokens\irespotokens.wast" />
+    <None Include="irespotokens\irespotokens_rc.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="irespoescrow\irespoescrow.hpp" />
