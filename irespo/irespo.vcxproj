@@ -85,6 +85,7 @@
     <None Include="irespoicoico\irespoicoico.wasm" />
     <None Include="irespoicoico\irespoicoico.wast" />
     <None Include="irespoicoico\irespoicoico_rc.md" />
+    <None Include="irespooracle\commands.md" />
     <None Include="irespooracle\irespooracle.abi" />
     <None Include="irespooracle\irespooracle.wasm" />
     <None Include="irespooracle\irespooracle.wast" />
