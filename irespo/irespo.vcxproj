@@ -69,6 +69,7 @@
     <ClCompile Include="irespotokens\irespotokens.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="irespoescrow\commands.md" />
     <None Include="irespoescrow\irespoescrow.abi" />
     <None Include="irespoescrow\irespoescrow.wasm" />
     <None Include="irespoescrow\irespoescrow.wast" />
