@@ -197,7 +197,7 @@ namespace irespo {
 			asset IRESPOtoSend = asset(IRESPOamount, S(6, IRESPO));
 			//sending IRESPO TOKENS
 			action(permission_level{ _self, N(active) }, N(irespotokens), N(transfer),
-				make_tuple(_self, transfer.from, IRESPOtoSend, string("Thank you for taking part in our ICO!"))).send();
+				make_tuple(_self, transfer.from, IRESPOtoSend, string("Thank you for taking part in our ICO!cd "))).send();
 
 		}
 		
