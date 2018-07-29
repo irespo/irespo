@@ -153,7 +153,7 @@ namespace irespo {
 	void irespoicoico::transferReceived(const currency::transfer &transfer, const account_name code) {
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 		
-		if (code != N(irespoappapp))
+		if (transfer.from != N(irespoappapp))
 		{
 			if (transfer.to != _self) {
 				return;
