@@ -12756,6 +12756,11 @@
     (get_local $11)
    )
   )
+  (set_local $16
+   (i64.load
+    (get_local $1)
+   )
+  )
   (set_local $13
    (i64.const 0)
   )
@@ -12874,8 +12879,8 @@
    (block $label$11
     (br_if $label$11
      (i64.eq
+      (get_local $16)
       (get_local $14)
-      (get_local $2)
      )
     )
     (br_if $label$11
@@ -14012,7 +14017,7 @@
     (set_local $11
      (i32.const 1200)
     )
-    (set_local $2
+    (set_local $16
      (i64.const 0)
     )
     (loop $label$52
@@ -14099,10 +14104,10 @@
        (i64.const 1)
       )
      )
-     (set_local $2
+     (set_local $16
       (i64.or
        (get_local $15)
-       (get_local $2)
+       (get_local $16)
       )
      )
      (br_if $label$52
@@ -14126,7 +14131,7 @@
     (set_local $11
      (i32.const 864)
     )
-    (set_local $16
+    (set_local $2
      (i64.const 0)
     )
     (loop $label$56
@@ -14233,10 +14238,10 @@
        (i64.const 1)
       )
      )
-     (set_local $16
+     (set_local $2
       (i64.or
        (get_local $12)
-       (get_local $16)
+       (get_local $2)
       )
      )
      (br_if $label$56
@@ -14403,11 +14408,11 @@
     )
     (i64.store offset=64
      (get_local $17)
-     (get_local $2)
+     (get_local $16)
     )
     (i64.store offset=72
      (get_local $17)
-     (get_local $16)
+     (get_local $2)
     )
     (i64.store
      (tee_local $11
@@ -14744,7 +14749,7 @@
        (i32.eq
         (tee_local $4
          (i32.load
-          (tee_local $0
+          (tee_local $1
            (i32.add
             (get_local $17)
             (i32.const 132)
@@ -14842,7 +14847,7 @@
      )
     )
     (i32.store
-     (get_local $0)
+     (get_local $1)
      (get_local $3)
     )
     (call $_ZdlPv
