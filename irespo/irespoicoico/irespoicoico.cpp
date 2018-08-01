@@ -138,7 +138,28 @@ namespace irespo {
 
 	void irespoicoico::addpurchase(name purchaser, asset irespobought, asset eospaid)
 	{
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
 
+		purchases p(_self, _self);
+
+		auto iter = p.find(purchaser);
+
+
+		if (iter == p.end()) {
+
+			p.emplace(configs(_self, _self).get().application, [&](auto& row) {
+				row.purchaser = purchaser;
+				row.irespobought = irespobought;
+				row.eospaid = eospaid;
+			});
+		}
+		else {
+			p.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
+				row.irespobought = irespobought;
+				row.eospaid = eospaid;
+			});
+		}
 	}
 
 	void irespoicoico::apply(const account_name contract, const account_name act) {
