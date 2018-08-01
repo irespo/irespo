@@ -136,6 +136,11 @@ namespace irespo {
 		}
 	}
 
+	void irespoicoico::addpurchase(name purchaser, asset irespobought, asset eospaid)
+	{
+
+	}
+
 	void irespoicoico::apply(const account_name contract, const account_name act) {
 
 		if (act == N(transfer)) {
