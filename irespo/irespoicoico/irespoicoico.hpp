@@ -40,12 +40,14 @@ namespace irespo {
 		};
 
 		// @abi table
-		struct purchase {
-			name purchaser;
+		struct pchase {
+			uint64_t purchaser;
 			asset irespobought;
 			asset eospaid;
 
 			uint64_t primary_key() const { return purchaser; }
+
+			EOSLIB_SERIALIZE(pchase, (purchaser)(irespobought)(eospaid))
 		};
 
 
@@ -94,7 +96,7 @@ namespace irespo {
 		void dellogdata(name application);		
 
 		// @abi action
-		void addpurchase(name purchaser, asset irespobought, asset eospaid);
+		void addpurchase(account_name purchaser, asset irespobought, asset eospaid);
 
 		void apply(const account_name contract, const account_name act);
 
@@ -108,7 +110,7 @@ namespace irespo {
 
 		typedef multi_index<N(oracle), oracle> oracles;
 		typedef multi_index<N(log), log> logs;
-		typedef multi_index<N(purchase), purchase> purchases;
+		typedef multi_index<N(pchase), pchase> pchases;
 
 	}; /// namespace irespo
 }

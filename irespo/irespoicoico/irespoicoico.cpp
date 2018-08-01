@@ -21,7 +21,7 @@ namespace irespo {
 
 	void irespoicoico::addauser(uint64_t ico_id, name user)
 	{
-		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured.");
 		require_auth(configs(_self, _self).get().application);
 
 		auto iter = allowedicos.find(ico_id);
@@ -42,7 +42,7 @@ namespace irespo {
 
 	void irespoicoico::addausers(vector<allowedico> users)
 	{
-		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured.");
 		require_auth(configs(_self, _self).get().application);
 
 		for (auto& n : users)
@@ -136,12 +136,12 @@ namespace irespo {
 		}
 	}
 
-	void irespoicoico::addpurchase(name purchaser, asset irespobought, asset eospaid)
+	void irespoicoico::addpurchase(account_name purchaser, asset irespobought, asset eospaid)
 	{
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 		require_auth(configs(_self, _self).get().application);
 
-		purchases p(_self, _self);
+		pchases p(_self, _self);
 
 		auto iter = p.find(purchaser);
 
@@ -223,7 +223,7 @@ namespace irespo {
 			asset IRESPOtoSend = asset(IRESPOamount, S(6, IRESPO));
 			//sending IRESPO TOKENS
 			action(permission_level{ _self, N(active) }, N(irespotokens), N(transfer),
-				make_tuple(_self, transfer.from, IRESPOtoSend, string("Thank you for taking part in our ICO!cd "))).send();
+				make_tuple(_self, transfer.from, IRESPOtoSend, string("Thank you for taking part in our ICO!"))).send();
 
 		}
 		
