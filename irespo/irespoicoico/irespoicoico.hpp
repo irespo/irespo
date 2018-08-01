@@ -39,6 +39,10 @@ namespace irespo {
 			EOSLIB_SERIALIZE(log, (logtime)(irespooracle)(exchangerate)(icostarttime)(icoendtime))
 		};
 
+		// @abi table
+		struct 
+
+
 		struct oracle {
 			uint64_t id;
 			string type;
