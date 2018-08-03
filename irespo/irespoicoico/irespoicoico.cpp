@@ -141,11 +141,10 @@ namespace irespo {
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured.");
 		require_auth(configs(_self, _self).get().application);
 
-		pxases p(_self, _self);
+		purchases p(_self, _self);
 		auto iter = p.find(purchaser);
 		
 		if (iter == p.end()) {
-			eosio::print("New Row");
 			p.emplace(configs(_self, _self).get().application, [&](auto& row) {
 				row.purchaser = purchaser;
 				row.irespobought = irespobought;
@@ -154,7 +153,6 @@ namespace irespo {
 			});
 		}
 		else {
-			eosio::print("Modified row");
 			p.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
 				row.irespobought = irespobought;
 				row.eospaid = eospaid;
@@ -187,44 +185,75 @@ namespace irespo {
 			}
 			eosio_assert(icoconfigs(_self, _self).exists(), "ICO not configured");
 
-			eosio_assert(static_cast<uint32_t>(code == N(eosio.token)), "needs to come from eosio.token");
-			eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the name");
-			eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(4, EOS)), "only EOS token allowed");
-			eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
-			eosio_assert(static_cast<uint32_t>(transfer.quantity.amount >= 1000), "must be at least 0.1 EOS");
+			//transfers of EOS - take part in ICO
+			if (static_cast<uint32_t>(transfer.quantity.symbol == S(4, EOS)))
+			{
+				eosio_assert(static_cast<uint32_t>(code == N(eosio.token)), "needs to come from eosio.token");
+				eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the name");
+				//eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(4, EOS)), "only EOS token allowed");
+				eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
+				eosio_assert(static_cast<uint32_t>(transfer.quantity.amount >= 1000), "must be at least 0.1 EOS");
 
-			uint64_t oracle_id = 1;
-			auto icocon = icoconfigs(_self, _self).get();
-			name irespooracle = icocon.irespooracle;
-			uint32_t icostarttime = icocon.icostarttime;
-			uint32_t icoendtime = icocon.icoendtime;
-			uint32_t nowTime = now();
+				uint64_t oracle_id = 1;
+				auto icocon = icoconfigs(_self, _self).get();
+				name irespooracle = icocon.irespooracle;
+				uint32_t icostarttime = icocon.icostarttime;
+				uint32_t icoendtime = icocon.icoendtime;
+				uint32_t nowTime = now();
 
-			//dates within ICO
-			eosio_assert(icostarttime < nowTime, "ICO has not started");
-			eosio_assert(nowTime  < icoendtime, "ICO has ended");
+				//dates within ICO
+				eosio_assert(icostarttime < nowTime, "ICO has not started");
+				eosio_assert(nowTime  < icoendtime, "ICO has ended");
 
-			oracles o(irespooracle, irespooracle);
-			auto iterOracle = o.find(oracle_id);
-			uint64_t USDrate = iterOracle->value;
+				oracles o(irespooracle, irespooracle);
+				auto iterOracle = o.find(oracle_id);
+				uint64_t USDrate = iterOracle->value;
 
-			eosio_assert(50000 <= USDrate && USDrate <= 200000, "Check EOS/USD rate");
+				eosio_assert(50000 <= USDrate && USDrate <= 200000, "Check EOS/USD rate");
 
-			uint64_t ico_id = std::stoull(transfer.memo);
-			auto iterUser = allowedicos.find(ico_id);
+				uint64_t ico_id = std::stoull(transfer.memo);
+				auto iterUser = allowedicos.find(ico_id);
+
+				//the sending account must match the one registered in our app - memo should contain the ico_id that can be found in the account settings
+				require_auth(iterUser->user);
+
+				asset receivedEOS = transfer.quantity;
+				uint64_t EOSamount = receivedEOS.amount;
+				uint64_t priceInUSDcents = 15;
+				uint64_t IRESPOamount = (EOSamount * USDrate) / priceInUSDcents;
+
+				asset IRESPOtoSend = asset(IRESPOamount, S(6, IRESPO));
+				//sending IRESPO TOKENS
+				action(permission_level{ _self, N(active) }, N(irespotokens), N(transfer),
+					make_tuple(_self, transfer.from, IRESPOtoSend, string("Thank you for taking part in our ICO!"))).send();
+
+				//adding to purchase table
+				purchases p(_self, _self);
+				auto iterPurchase = p.find(transfer.from);
+
+				if (iterPurchase == p.end())
+				{
+					p.emplace(configs(_self, _self).get().application, [&](auto& row) {
+						row.purchaser = transfer.from;
+						row.irespobought = IRESPOtoSend;
+						row.eospaid = receivedEOS;
+					});
+				}
+				else
+				{
+					p.modify(iterPurchase, configs(_self, _self).get().application, [&](auto& row) {
+						row.irespobought += IRESPOtoSend;
+						row.eospaid += receivedEOS;
+					});
+				}
+			}
+			//return of IRESPO if ICO unsuccessful
+			else
+			{
+
+			}
+
 			
-			//the sending account must match the one registered in our app - memo should contain the ico_id that can be found in the account settings
-			require_auth(iterUser->user);
-
-			asset receivedEOS = transfer.quantity;
-			uint64_t EOSamount = receivedEOS.amount;
-			uint64_t priceInUSDcents = 15;
-			uint64_t IRESPOamount = (EOSamount * USDrate) / priceInUSDcents;
-
-			asset IRESPOtoSend = asset(IRESPOamount, S(6, IRESPO));
-			//sending IRESPO TOKENS
-			action(permission_level{ _self, N(active) }, N(irespotokens), N(transfer),
-				make_tuple(_self, transfer.from, IRESPOtoSend, string("Thank you for taking part in our ICO!"))).send();
 
 		}
 		
