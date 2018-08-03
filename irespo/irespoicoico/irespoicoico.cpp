@@ -255,6 +255,7 @@ namespace irespo {
 				eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(6, IRESPO)), "only IRESPO token allowed");
 				eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
 				eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must be at positive");
+				eosio_assert(now() < 1535529600, "the return can be made before August 29th 8 am - week after ICO");
 
 				purchases p(_self, _self);
 				auto iterPurchase = p.find(transfer.from);
