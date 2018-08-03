@@ -39,15 +39,15 @@ namespace irespo {
 			EOSLIB_SERIALIZE(log, (logtime)(irespooracle)(exchangerate)(icostarttime)(icoendtime))
 		};
 
-		// @abi table
-		struct pchase {
+		// @abi table pxase i64
+		struct pxase {
 			uint64_t purchaser;
 			asset irespobought;
 			asset eospaid;
 
-			uint64_t primary_key() const { return purchaser; }
+			uint64_t primary_key()const { return purchaser; }
 
-			EOSLIB_SERIALIZE(pchase, (purchaser)(irespobought)(eospaid))
+			EOSLIB_SERIALIZE(pxase, (purchaser)(irespobought)(eospaid))
 		};
 
 
@@ -110,7 +110,7 @@ namespace irespo {
 
 		typedef multi_index<N(oracle), oracle> oracles;
 		typedef multi_index<N(log), log> logs;
-		typedef multi_index<N(pchase), pchase> pchases;
+		typedef multi_index<N(pxase), pxase> pxases;
 
 	}; /// namespace irespo
 }

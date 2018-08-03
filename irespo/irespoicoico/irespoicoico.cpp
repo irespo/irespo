@@ -138,26 +138,27 @@ namespace irespo {
 
 	void irespoicoico::addpurchase(account_name purchaser, asset irespobought, asset eospaid)
 	{
-		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured.");
 		require_auth(configs(_self, _self).get().application);
 
-		pchases p(_self, _self);
-
+		pxases p(_self, _self);
 		auto iter = p.find(purchaser);
-
-
+		
 		if (iter == p.end()) {
-
+			eosio::print("New Row");
 			p.emplace(configs(_self, _self).get().application, [&](auto& row) {
 				row.purchaser = purchaser;
 				row.irespobought = irespobought;
 				row.eospaid = eospaid;
+				
 			});
 		}
 		else {
+			eosio::print("Modified row");
 			p.modify(iter, configs(_self, _self).get().application, [&](auto& row) {
 				row.irespobought = irespobought;
 				row.eospaid = eospaid;
+
 			});
 		}
 	}
@@ -172,7 +173,7 @@ namespace irespo {
 		auto &thiscontract = *this;
 
 		switch (act) {
-			EOSIO_API(irespoicoico, (setapp)(setico)(addauser)(addausers)(delauser)(delall)(logdata)(dellogdata))
+			EOSIO_API(irespoicoico, (setapp)(setico)(addauser)(addausers)(delauser)(delall)(logdata)(dellogdata)(addpurchase))
 		};
 	}
 
