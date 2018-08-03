@@ -250,7 +250,11 @@ namespace irespo {
 			//return of IRESPO if ICO unsuccessful
 			else
 			{
-
+				eosio_assert(static_cast<uint32_t>(code == N(irespotokens)), "needs to come from irespotokens");
+				eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the name");
+				eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(6, IRESPO)), "only IRESPO token allowed");
+				eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
+				eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must be at positive");
 			}
 
 			
