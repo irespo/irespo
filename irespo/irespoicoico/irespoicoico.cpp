@@ -263,6 +263,11 @@ namespace irespo {
 				eosio_assert(iterPurchase != p.end(), "no tokens to return");
 				eosio_assert(iterPurchase->irespobought == transfer.quantity, "the returned number of tokens is different than purchased");
 
+				//checking if the number of IRESPO tokens on irespoicoico is bigger than 64 mln
+				accounts accountstable(N(irespotokens), _self);
+				auto iterAccount = accountstable.begin();
+				auto bal = iterAccount->balance;
+
 				//sending back EOS TOKENS
 				action(permission_level{ _self, N(active) }, N(eosio.tokens), N(transfer),
 					make_tuple(_self, transfer.from, iterPurchase->eospaid, string("Return of EOS tokens"))).send();
