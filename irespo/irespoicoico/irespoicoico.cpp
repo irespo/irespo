@@ -255,10 +255,20 @@ namespace irespo {
 				eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(6, IRESPO)), "only IRESPO token allowed");
 				eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
 				eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must be at positive");
+
+				purchases p(_self, _self);
+				auto iterPurchase = p.find(transfer.from);
+
+				eosio_assert(iterPurchase != p.end(), "no tokens to return");
+				eosio_assert(iterPurchase->irespobought == transfer.quantity, "the returned number of tokens is different than purchased");
+
+				//sending back EOS TOKENS
+				action(permission_level{ _self, N(active) }, N(eosio.tokens), N(transfer),
+					make_tuple(_self, transfer.from, iterPurchase->eospaid, string("Return of EOS tokens"))).send();
+
+				//deleting the row in the table
+				p.erase(iterPurchase);
 			}
-
-			
-
 		}
 		
 	}
