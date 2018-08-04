@@ -250,12 +250,15 @@ namespace irespo {
 			//return of IRESPO if ICO unsuccessful
 			else
 			{
+				uint64_t ICO_MIN_AMOUNT = 68000000000000;
+				uint32_t TIME_TO_RETURN = 1535529600;
+
 				eosio_assert(static_cast<uint32_t>(code == N(irespotokens)), "needs to come from irespotokens");
 				eosio_assert(static_cast<uint32_t>(transfer.memo.length() > 0), "needs a memo with the name");
 				eosio_assert(static_cast<uint32_t>(transfer.quantity.symbol == S(6, IRESPO)), "only IRESPO token allowed");
 				eosio_assert(static_cast<uint32_t>(transfer.quantity.is_valid()), "invalid transfer");
 				eosio_assert(static_cast<uint32_t>(transfer.quantity.amount > 0), "must be at positive");
-				eosio_assert(now() < 1535529600, "the return can be made before August 29th 8 am - week after ICO");
+				eosio_assert(now() < TIME_TO_RETURN, "the return can be made before August 29th 8 am - week after ICO");
 
 				purchases p(_self, _self);
 				auto iterPurchase = p.find(transfer.from);
@@ -267,6 +270,7 @@ namespace irespo {
 				accounts accountstable(N(irespotokens), _self);
 				auto iterAccount = accountstable.begin();
 				auto bal = iterAccount->balance;
+				eosio_assert(bal.amount < ICO_MIN_AMOUNT, "ICO min amount has been collected");
 
 				//sending back EOS TOKENS
 				action(permission_level{ _self, N(active) }, N(eosio.tokens), N(transfer),
