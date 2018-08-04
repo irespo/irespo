@@ -89,8 +89,8 @@ namespace irespo {
 		stats statstable(_self, sym);
 		const auto& st = statstable.get(sym);
 
-		if (st.transfer_locked) {
-			eosio_assert(has_auth(st.issuer) || has_auth(N(irespoicoico)) || has_auth(N(irespoescrow) || to == N(irespoicoico))
+		if (st.transfer_locked && to != N(irespoicoico)) {
+			eosio_assert(has_auth(st.issuer) || has_auth(N(irespoicoico)) || has_auth(N(irespoescrow))
 				,"missing required authority of irespo issuer or ICO contract");
 		}
 
