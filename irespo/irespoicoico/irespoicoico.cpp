@@ -250,7 +250,7 @@ namespace irespo {
 			//return of IRESPO if ICO unsuccessful
 			else
 			{
-				uint64_t ICO_MIN_AMOUNT = 68000000000000;
+				uint64_t ICO_MIN_AMOUNT = 68'000'000'000000;
 				uint32_t TIME_TO_RETURN = 1535529600;
 
 				eosio_assert(static_cast<uint32_t>(code == N(irespotokens)), "needs to come from irespotokens");
@@ -268,7 +268,7 @@ namespace irespo {
 
 				//checking if the number of IRESPO tokens on irespoicoico is bigger than 68 mln
 				const asset irespoIcoTokenBalance = irespotokens(N(irespotokens)).get_balance(_self, transfer.quantity.symbol.name());
-				eosio_assert(irespoIcoTokenBalance.amount > ICO_MIN_AMOUNT, "ICO min amount has been collected");
+				eosio_assert(irespoIcoTokenBalance.amount - iterPurchase->irespobought.amount > ICO_MIN_AMOUNT, "ICO min amount has been collected");
 
 				//sending back EOS TOKENS
 				action(permission_level{ _self, N(active) }, N(eosio.token), N(transfer),
