@@ -267,7 +267,7 @@ namespace irespo {
 				eosio_assert(iterPurchase->irespobought == transfer.quantity, "the returned number of tokens is different than purchased");
 
 				//checking if the number of IRESPO tokens on irespoicoico is bigger than 64 mln
-				accounts accountstable(N(irespotokens), _self);
+				eosio::currency::accounts accountstable(N(irespotokens), _self);
 				auto iterAccount = accountstable.begin();
 				auto bal = iterAccount->balance;
 				eosio_assert(bal.amount < ICO_MIN_AMOUNT, "ICO min amount has been collected");
