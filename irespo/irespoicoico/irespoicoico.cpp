@@ -266,7 +266,7 @@ namespace irespo {
 				eosio_assert(iterPurchase != p.end(), "no tokens to return");
 				eosio_assert(iterPurchase->irespobought == transfer.quantity, "the returned number of tokens is different than purchased");
 
-				//checking if the number of IRESPO tokens on irespoicoico is bigger than 64 mln
+				//checking if the number of IRESPO tokens on irespoicoico is bigger than 68 mln
 				const asset irespoIcoTokenBalance = irespotokens(N(irespotokens)).get_balance(_self, transfer.quantity.symbol.name());
 				eosio_assert(irespoIcoTokenBalance.amount > ICO_MIN_AMOUNT, "ICO min amount has been collected");
 
