@@ -4,6 +4,7 @@
 #include <eosiolib/singleton.hpp>
 #include <eosiolib/asset.hpp>
 #include <eosiolib/currency.hpp>
+#include <../irespotokens/irespotokens.hpp>
 #include <string>
 
 using namespace eosio;

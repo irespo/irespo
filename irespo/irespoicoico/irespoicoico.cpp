@@ -267,13 +267,11 @@ namespace irespo {
 				eosio_assert(iterPurchase->irespobought == transfer.quantity, "the returned number of tokens is different than purchased");
 
 				//checking if the number of IRESPO tokens on irespoicoico is bigger than 64 mln
-				eosio::currency::accounts accountstable(N(irespotokens), _self);
-				auto iterAccount = accountstable.begin();
-				auto bal = iterAccount->balance;
-				eosio_assert(bal.amount < ICO_MIN_AMOUNT, "ICO min amount has been collected");
+				const asset irespoIcoTokenBalance = irespotokens(N(irespotokens)).get_balance(_self, transfer.quantity.symbol.name());
+				eosio_assert(irespoIcoTokenBalance.amount > ICO_MIN_AMOUNT, "ICO min amount has been collected");
 
 				//sending back EOS TOKENS
-				action(permission_level{ _self, N(active) }, N(eosio.tokens), N(transfer),
+				action(permission_level{ _self, N(active) }, N(eosio.token), N(transfer),
 					make_tuple(_self, transfer.from, iterPurchase->eospaid, string("Return of EOS tokens"))).send();
 
 				//deleting the row in the table
