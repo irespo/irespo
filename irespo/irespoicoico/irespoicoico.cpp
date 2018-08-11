@@ -209,7 +209,7 @@ namespace irespo {
 				auto iterOracle = o.find(oracle_id);
 				uint64_t USDrate = iterOracle->value;
 
-				eosio_assert(50000 <= USDrate && USDrate <= 200000, "Check EOS/USD rate");
+				eosio_assert(30000 <= USDrate && USDrate <= 120000, "Check EOS/USD rate");
 
 				uint64_t ico_id = std::stoull(transfer.memo);
 				auto iterUser = allowedicos.find(ico_id);
