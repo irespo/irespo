@@ -16703,9 +16703,9 @@
                       (get_local $13)
                      )
                     )
-                    (i64.const -50000)
+                    (i64.const -30000)
                    )
-                   (i64.const 150001)
+                   (i64.const 90001)
                   )
                   (i32.const 1264)
                  )
@@ -18460,7 +18460,15 @@
               )
               (call $eosio_assert
                (i64.gt_u
-                (get_local $14)
+                (i64.sub
+                 (get_local $14)
+                 (i64.load
+                  (i32.add
+                   (get_local $6)
+                   (i32.const 8)
+                  )
+                 )
+                )
                 (i64.const 68000000000000)
                )
                (i32.const 1808)
