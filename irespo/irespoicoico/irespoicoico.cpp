@@ -175,6 +175,23 @@ namespace irespo {
 		};
 	}
 
+	void irespoicoico::returntokens(name purchaser) {
+		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
+		require_auth(configs(_self, _self).get().application);
+
+		purchases p(_self, _self);
+		auto iterPurchase = p.find(purchaser);
+
+		eosio_assert(iterPurchase != p.end(), "no tokens to return");
+
+		//sending back EOS TOKENS
+		action(permission_level{ _self, N(active) }, N(eosio.token), N(transfer),
+			make_tuple(_self, purchaser, iterPurchase->eospaid, string("Return of EOS tokens after unsuccessful ICO"))).send();
+
+		//deleting the row in the table
+		p.erase(iterPurchase);
+	}
+
 	void irespoicoico::transferReceived(const currency::transfer &transfer, const account_name code) {
 		eosio_assert(configs(_self, _self).exists(), "Application account not configured");
 		

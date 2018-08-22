@@ -97,6 +97,9 @@ namespace irespo {
 		void dellogdata(name application);		
 
 		// @abi action
+		void returntokens(name purchaser);
+
+		// @abi action
 		void addpurchase(account_name purchaser, asset irespobought, asset eospaid);
 
 		void apply(const account_name contract, const account_name act);
