@@ -171,7 +171,7 @@ namespace irespo {
 		auto &thiscontract = *this;
 
 		switch (act) {
-			EOSIO_API(irespoicoico, (setapp)(setico)(addauser)(addausers)(delauser)(delall)(logdata)(dellogdata)(addpurchase))
+			EOSIO_API(irespoicoico, (setapp)(setico)(addauser)(addausers)(delauser)(delall)(logdata)(dellogdata)(addpurchase)(returntokens))
 		};
 	}
 
