@@ -216,7 +216,7 @@ namespace irespo {
 
 			asset receivedEOS = transfer.quantity;
 			uint64_t EOSamount = receivedEOS.amount;
-			uint64_t priceInUSDcents = 15;
+			uint64_t priceInUSDcents = 20;
 			uint64_t IRESPOamount = (EOSamount * USDrate) / priceInUSDcents;
 
 			asset IRESPOtoSend = asset(IRESPOamount, S(6, IRESPO));
