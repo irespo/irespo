@@ -66,6 +66,7 @@
     <ClCompile Include="irespoicoico\irespoicoico.cpp" />
     <ClCompile Include="irespooracle\irespooracle.cpp" />
     <ClCompile Include="iresporemove\iresporemove.cpp" />
+    <ClCompile Include="iresposales\iresposales.cpp" />
     <ClCompile Include="irespotokens\irespotokens.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +104,7 @@
     <ClInclude Include="irespoescrow\irespoescrow.hpp" />
     <ClInclude Include="irespoicoico\irespoicoico.hpp" />
     <ClInclude Include="irespooracle\irespooracle.hpp" />
+    <ClInclude Include="iresposales\iresposales.hpp" />
     <ClInclude Include="irespotokens\irespotokens.hpp" />
   </ItemGroup>
   <ItemDefinitionGroup />
