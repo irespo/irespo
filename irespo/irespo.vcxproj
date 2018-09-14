@@ -94,6 +94,9 @@
     <None Include="iresporemove\iresporemove.abi" />
     <None Include="iresporemove\iresporemove.wasm" />
     <None Include="iresporemove\iresporemove.wast" />
+    <None Include="iresposales\iresposales.abi" />
+    <None Include="iresposales\iresposales.wasm" />
+    <None Include="iresposales\iresposales.wast" />
     <None Include="irespotokens\commands.md" />
     <None Include="irespotokens\irespotokens.abi" />
     <None Include="irespotokens\irespotokens.wasm" />
